@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 22:18:25 by ayoub             #+#    #+#             */
-/*   Updated: 2021/12/28 00:28:34 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/12/29 01:43:07 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 
 # include <stdio.h>
+# include <string.h>
 
 typedef struct s_stack
 {
@@ -40,7 +41,7 @@ void	ft_ss(t_stack *sa, t_stack *sb);
 
 /* push.c */
 void	ft_pa(t_stack *sa, t_stack *sb);
-void	ft_pb(t_stack *sb, t_stack *sa);
+void	ft_pb(t_stack *sa, t_stack *sb);
 
 /* rotate.c */
 void	ft_ra(t_stack *s);

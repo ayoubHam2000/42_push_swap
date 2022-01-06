@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 22:37:42 by ayoub             #+#    #+#             */
-/*   Updated: 2021/12/28 00:29:30 by ayoub            ###   ########.fr       */
+/*   Updated: 2021/12/29 02:17:13 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	print_stack(t_stack s)
 	i = s.size - 1;
 	while (i >= 0)
 	{
-		printf("%d", s.s[i]);
+		printf("%d", s.s[s.size - i - 1]);
 		if (i > 0)
-			printf(" <- ");
+			printf(" -> ");
 		i--;
 	}
 	printf("\n");
