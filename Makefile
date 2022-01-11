@@ -3,20 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+         #
+#    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/28 00:30:00 by ayoub             #+#    #+#              #
-#    Updated: 2021/12/29 01:48:19 by ayoub            ###   ########.fr        #
+#    Created: 2022/01/08 23:35:59 by aben-ham          #+#    #+#              #
+#    Updated: 2022/01/09 04:47:00 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I.
 FILES = utils/push.c \
 		utils/reverse_rotate.c \
 		utils/rotate.c \
 		utils/stack.c \
 		utils/swap.c \
-		utils/utils.c
+		utils/utils.c \
+		algo/*.c
 all:
 	gcc $(CFLAGS) main.c $(FILES) -o push_swap.out
 dis:

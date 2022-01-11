@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/27 22:41:14 by ayoub             #+#    #+#             */
-/*   Updated: 2021/12/28 00:43:25 by ayoub            ###   ########.fr       */
+/*   Created: 2022/01/08 23:35:37 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/08 23:39:36 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	ft_error(void)
 {

@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/27 22:37:42 by ayoub             #+#    #+#             */
-/*   Updated: 2021/12/29 02:17:13 by ayoub            ###   ########.fr       */
+/*   Created: 2022/01/08 23:35:25 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/09 00:06:01 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	stack_error(t_stack *s)
 {
 	if (s->s)
 		free(s->s);
 	ft_error();
+	
 	exit(0);
 }
 
-void	init_stack(t_stack *s, int max, char **values)
+void	init_stack(t_stack *s, int max, char **values, char tag)
 {
 	int	i;
 
@@ -28,6 +29,8 @@ void	init_stack(t_stack *s, int max, char **values)
 	if (!(s->s))
 		stack_error(s);
 	s->size = 0;
+	s->tag = tag;
+	s->minPos = -1;
 	i = 0;
 	while (i < max && values)
 	{

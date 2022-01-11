@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   change_b.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:36:08 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/10 23:30:32 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/09 07:11:00 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/10 20:31:22 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <termios.h>
+#include "push_swap.h"
 
-char	getch(void)
+void	change_left_b(t_stack *sa, t_stack *sb)
 {
-	char	buf = 0;
-	struct termios old = {0};
+	int	i;
+
+	i = sb->minPos + 1;
+	//printf("Left B\n");
+	while (i > 0)
+	{
+		ft_rrb(sb);
+		i--;
+	}
+	sb->minPos = -1;
+	ft_pa(sa, sb);
+	ft_ra(sa);
 }
 
-int main()
+void	change_right_b(t_stack *sa, t_stack *sb)
 {
-	char	c;
-	
-	return (0);
+	int	i;
+
+	//printf("Right B\n");
+	i = sb->size - sb->minPos - 1;
+	while (i > 0)
+	{
+		ft_rb(sb);
+		i--;
+	}
+	sb->minPos = -1;
+	ft_pa(sa, sb);
+	ft_ra(sa);
 }
-
-/*
-in B
-rotate or swap
-
-A : 12 -> 11 -> 9 -> 8 -> 7 -> 6 -> 5 -> 4 -> 2 -> 1
-B : 20 -> 21 -> 15 -> 13 -> 14
-
-== where is the most likley min
-
-*/
-
-// ./push_swap.out `seq 0 4 | sort -R | tr '\n' ' '` > out

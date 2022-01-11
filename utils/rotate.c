@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/27 23:02:49 by ayoub             #+#    #+#             */
-/*   Updated: 2021/12/27 23:20:57 by ayoub            ###   ########.fr       */
+/*   Created: 2022/01/08 23:35:19 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/10 12:44:57 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	ft_shift_up(t_stack *s)
 {
@@ -25,6 +25,10 @@ static void	ft_shift_up(t_stack *s)
 		i--;
 	}
 	s->s[0] = tmp;
+	if (s->minPos < s->size - 1 && s->minPos != -1)
+		s->minPos++;
+	else if (s->minPos == s->size - 1)
+		s->minPos = 0;
 }
 
 void	ft_ra(t_stack *s)
@@ -44,4 +48,12 @@ void	ft_rr(t_stack *a, t_stack *b)
 	ft_shift_up(a);
 	ft_shift_up(b);
 	write(1, "rr\n", 3);
+}
+
+void	g_rotate(t_stack *s)
+{
+	if (s->tag == SA)
+		ft_ra(s);
+	else if (s->tag == SB)
+		ft_rb(s);
 }
