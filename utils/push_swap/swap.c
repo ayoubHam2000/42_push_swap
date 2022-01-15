@@ -1,59 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:35:19 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/10 12:44:57 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/08 23:35:32 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/12 00:42:57 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_shift_up(t_stack *s)
+static void	ft_swap(t_stack *s)
 {
 	int	tmp;
-	int	i;
 
+	if (s->size < 2)
+		return ;
 	tmp = s->s[s->size - 1];
-	i = s->size - 1;
-	while (i > 0)
-	{
-		s->s[i] = s->s[i - 1];
-		i--;
-	}
-	s->s[0] = tmp;
-	if (s->minPos < s->size - 1 && s->minPos != -1)
-		s->minPos++;
-	else if (s->minPos == s->size - 1)
-		s->minPos = 0;
+	s->s[s->size - 1] = s->s[s->size - 2];
+	s->s[s->size - 2] = tmp;
 }
 
-void	ft_ra(t_stack *s)
+void	ft_sa(t_stack *stack)
 {
-	ft_shift_up(s);
-	write(1, "ra\n", 3);
+	ft_swap(stack);
+	write(1, "sa\n", 3);
 }
 
-void	ft_rb(t_stack *s)
+void	ft_sb(t_stack *stack)
 {
-	ft_shift_up(s);
-	write(1, "rb\n", 3);
+	ft_swap(stack);
+	write(1, "sb\n", 3);
 }
 
-void	ft_rr(t_stack *a, t_stack *b)
+void	ft_ss(t_stack *sa, t_stack *sb)
 {
-	ft_shift_up(a);
-	ft_shift_up(b);
-	write(1, "rr\n", 3);
+	ft_swap(sa);
+	ft_swap(sb);
+	write(1, "ss\n", 1);
 }
 
-void	g_rotate(t_stack *s)
+void	g_swap(t_stack *s)
 {
 	if (s->tag == SA)
-		ft_ra(s);
+		ft_sa(s);
 	else if (s->tag == SB)
-		ft_rb(s);
+		ft_sb(s);
 }

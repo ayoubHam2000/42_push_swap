@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:09 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/09 07:36:20 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/12 00:42:43 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,6 @@ static void	ft_shift_down(t_stack *s)
 		i++;
 	}
 	s->s[i] = tmp;
-	if (s->minPos > 0)
-		s->minPos--;
-	else if (s->minPos == 0)
-		s->minPos = s->size - 1;
 }
 
 void	ft_rra(t_stack *s)

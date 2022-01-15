@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   direction.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 05:19:05 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/10 12:56:37 by aben-ham         ###   ########.fr       */
+/*   Created: 2021/12/27 22:35:17 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/12 00:42:37 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	direction(t_stack *s)
+static void	ft_push(t_stack *sa, t_stack *sb)
 {
-	int	sm_size;
+	if (sb->size == 0)
+		return ;
+	sa->s[sa->size] = sb->s[sb->size - 1];
+	sa->size++;
+	sb->size--;
+}
 
-	if (s->tag == SA)
-		sm_size = find_sm_size(s);
-	if (s->tag == SB)
-	{
-		if (2 * (s->minPos + 1) < s->size)
-			return (LEFT);
-		else
-			return (RIGHT);
-	}
-	if (sm_size == 0)
-	{
-		if (s->minPos <= s->size - s->minPos)
-			return (LEFT);
-		else
-			return (RIGHT);
-	}
-	if (sm_size == s->size)
-		return (-1);
-	if (3 * s->minPos + 4 <= s->size)
-		return (_LEFT);
-	else
-		return (_RIGHT);
+void	ft_pa(t_stack *sa, t_stack *sb)
+{
+	ft_push(sa, sb);
+	write(1, "pa\n", 3);
+}
+
+void	ft_pb(t_stack *sa, t_stack *sb)
+{
+	ft_push(sb, sa);
+	write(1, "pb\n", 3);
+}
+
+void	g_push(t_stack *sa, t_stack *sb)
+{
+	if (sa->tag == SA)
+		ft_pa(sa, sb);
+	else if (sa->tag == SB)
+		ft_pb(sa, sb);
 }

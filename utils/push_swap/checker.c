@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:37 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/08 23:39:36 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/14 22:12:14 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_error(void)
-{
-	write(2, "Error\n", 6);
-}
 
 static int	is_blank(char c)
 {
@@ -23,28 +18,6 @@ static int	is_blank(char c)
 		|| c == '\v' || c == '\t' || c == '\n' || c == '\r')
 		return (1);
 	return (0);
-}
-
-int	ft_atoi(const char *str)
-{
-	int					signe;
-	unsigned long long	res;
-
-	while (is_blank(*str))
-		str++;
-	signe = 1;
-	if (*str == '-')
-		signe = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	res = 0;
-	while (*str >= '0' && *str <= '9')
-	{
-		res = res * 10;
-		res = res + (*str - '0');
-		str++;
-	}
-	return (res * signe);
 }
 
 int	int_check(char *str)
