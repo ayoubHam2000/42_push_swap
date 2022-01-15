@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:48 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/08 23:37:07 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/15 02:44:29 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,8 @@ int	main(int ac, char **av)
 	t_stack	b;
 
 	av++;
-	init_stack(&a, ac - 1, av);
-	init_stack(&b, ac - 1, NULL);
+	init_stack(&a, ac - 1, av, SA);
+	init_stack(&b, ac - 1, NULL, SB);
 	push_swap(&a, &b);
 	return (0);
 }

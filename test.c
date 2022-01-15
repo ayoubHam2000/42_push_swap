@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:36:08 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/14 20:22:25 by ayoub            ###   ########.fr       */
+/*   Updated: 2022/01/15 17:25:54 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 
 int main()
 {
-    int *i;
+    int i;
 
-    i = ft_malloc(4);
-    *i = 88;
-    printf("%d\n", *i);
-    ft_free(i);
-    mem_clean();
+    i = 2;
+    float f = 5 / (float)i;
+    printf("%f\n", f);
 }
 
 /*
