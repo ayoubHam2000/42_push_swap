@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:32 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/12 00:42:57 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/16 20:07:28 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,34 @@ static void	ft_swap(t_stack *s)
 	s->s[s->size - 2] = tmp;
 }
 
-void	ft_sa(t_stack *stack)
+int	ft_sa(t_stack *stack, int affect)
 {
-	ft_swap(stack);
-	write(1, "sa\n", 3);
+	if (affect)
+	{
+		ft_swap(stack);
+		write(1, "sa\n", 3);
+	}
+	return (1);
 }
 
-void	ft_sb(t_stack *stack)
+int	ft_sb(t_stack *stack, int affect)
 {
-	ft_swap(stack);
-	write(1, "sb\n", 3);
+	if (affect)
+	{
+		ft_swap(stack);
+		write(1, "sb\n", 3);
+	}
+	return (1);
 }
 
-void	ft_ss(t_stack *sa, t_stack *sb)
+int	ft_ss(t_stack *sa, t_stack *sb, int affect)
 {
-	ft_swap(sa);
-	ft_swap(sb);
-	write(1, "ss\n", 1);
+	if (affect)
+	{
+		ft_swap(sa);
+		ft_swap(sb);
+		write(1, "ss\n", 1);
+	}
+	return (1);
 }
 
-void	g_swap(t_stack *s)
-{
-	if (s->tag == SA)
-		ft_sa(s);
-	else if (s->tag == SB)
-		ft_sb(s);
-}

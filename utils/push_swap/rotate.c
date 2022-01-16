@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:19 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/12 00:42:49 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/16 20:05:04 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,34 @@ static void	ft_shift_up(t_stack *s)
 	s->s[0] = tmp;
 }
 
-void	ft_ra(t_stack *s)
+int	ft_ra(t_stack *s, int affect)
 {
-	ft_shift_up(s);
-	write(1, "ra\n", 3);
+	if (affect)
+	{
+		ft_shift_up(s);
+		write(1, "ra\n", 3);
+	}
+	return (1);
 }
 
-void	ft_rb(t_stack *s)
+int	ft_rb(t_stack *s, int affect)
 {
-	ft_shift_up(s);
-	write(1, "rb\n", 3);
+	if (affect)
+	{
+		ft_shift_up(s);
+		write(1, "rb\n", 3);
+	}
+	return (1);
 }
 
-void	ft_rr(t_stack *a, t_stack *b)
+int	ft_rr(t_stack *a, t_stack *b, int affect)
 {
-	ft_shift_up(a);
-	ft_shift_up(b);
-	write(1, "rr\n", 3);
+	if (affect)
+	{
+		ft_shift_up(a);
+		ft_shift_up(b);
+		write(1, "rr\n", 3);
+	}
+	return (1);
 }
 
-void	g_rotate(t_stack *s)
-{
-	if (s->tag == SA)
-		ft_ra(s);
-	else if (s->tag == SB)
-		ft_rb(s);
-}
