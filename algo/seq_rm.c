@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:41:22 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 01:19:21 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/16 22:08:59 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	seq_rm_mi(t_stack *s, int i)
 		return (-1);
 }
 
-//from [0 to min_nbr[
+//from [0 to n[
 int	seq_rm_si(t_stack *s, int i)
 {
 	int	m1;
@@ -53,5 +53,5 @@ int	init_rm_info(t_m_info *info, t_stack *s)
 {
 	info->ms = seq_rm_mi(s, 0);
 	info->me = seq_rm_mi(s, -1);
-	info->min_nbr = s->s[info->me] - s->util->sm_size + 1;
+	info->n = s->s[info->me] - s->util->sm_size + 1;
 }

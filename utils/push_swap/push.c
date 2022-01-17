@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 22:35:17 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 02:19:47 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/16 22:02:11 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,14 @@ static void	ft_push(t_stack *sa, t_stack *sb)
 	sb->size--;
 }
 
-int	ft_pa(t_stack *sa, t_stack *sb, int	affect)
+void	ft_pa(t_stack *sa, t_stack *sb)
 {
-	if (affect)
-	{
-		ft_push(sa, sb);
-		write(1, "pa\n", 3);
-	}
-	return (1);
+	ft_push(sa, sb);
+	write(1, "pa\n", 3);
 }
 
-int	ft_pb(t_stack *sa, t_stack *sb, int affect)
+void	ft_pb(t_stack *sa, t_stack *sb)
 {
-	if (affect)
-	{
-		ft_push(sb, sa);
-		write(1, "pb\n", 3);
-	}
-	return (1);
+	ft_push(sb, sa);
+	write(1, "pb\n", 3);
 }

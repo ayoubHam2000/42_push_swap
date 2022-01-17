@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:25 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/14 20:47:58 by ayoub            ###   ########.fr       */
+/*   Updated: 2022/01/16 22:23:05 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	*init_util()
 	util->ma = -1;
 	util->mb = -1;
 	util->sm_size = 0;
+	util->moves = 0;
+	util->p = NULL;
 	return (util);
 }
 

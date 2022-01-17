@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:41:16 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 01:19:09 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/17 00:32:29 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,20 @@ int	seq_m_mi(t_stack *s, int i)
 		return (-1);
 }
 
-//from [0 to min_nbr[
+//from [0 to n[
 int	seq_m_si(t_stack *s, int i)
 {
 	int	m1;
 	int	m2;
 
-	m1 = seq_m_mi(s, i);
-	m2 = seq_m_mi(s, i + 1);
+	if (i == 0)
+	{
+		if (s->tag == SA)
+			return (seq_m_mi(s, 0) - s->util->sm_size);
+		return (seq_m_mi(s, 0));
+	}
+	m1 = seq_m_mi(s, i - 1);
+	m2 = seq_m_mi(s, i);
 	if (m2 == -1)
 		return (s->size - m1 - 1);
 	return (m2 - m1 - 1);
@@ -51,8 +57,15 @@ int	seq_m_si(t_stack *s, int i)
 
 void	init_m_info(t_m_info *info, t_stack *s)
 {
+	int	i;
+	
 	info->ms = seq_m_mi(s, 0);
 	info->me = seq_m_mi(s, -1);
-	info->min_nbr = s->s[info->me] - s->util->sm_size + 1;
+	info->n = s->s[info->me] - s->s[info->ms] + 1;
+	info->old_moves = s->util->moves;
+	info->si = ft_malloc(sizeof(int) * (info->n + 1));
+	i = -1;
+	while (++i < info->n + 1)
+		info->si[i] = seq_m_si(s, i);
 }
 

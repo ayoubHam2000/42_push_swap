@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 20:37:22 by ayoub             #+#    #+#             */
-/*   Updated: 2022/01/16 01:28:01 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/17 00:13:25 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ typedef struct	s_m_info
 {
 	int	ms;
 	int	me;
-	int	min_nbr;
+	int	n;
+	int	old_moves;
+	int	*si;
 }	t_m_info;
 
 void	*transform(t_stack *sa);

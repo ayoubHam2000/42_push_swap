@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:41:10 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 01:19:39 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/16 22:08:41 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int	cal_rma_2(t_stack *sa)
 	res += sa->util->sm_size;
 	a = sa->s[info.me] - sa->s[a];
 	if (a == 0)
-		return (res + seq_rm_si(sa, info.min_nbr - 1));
+		return (res + seq_rm_si(sa, info.n - 1));
 	res += 2 * a;
 	a++;
 	while (--a >= 0)
-		res += 2 * seq_rm_si(sa, info.min_nbr - a - 1);
+		res += 2 * seq_rm_si(sa, info.n - a - 1);
 	return (res);
 }
 
@@ -61,7 +61,7 @@ int	cal_rma_3(t_stack *sa)
 	res += 4 * a;
 	a++;
 	while (--a >= 0)
-		res += seq_rm_si(sa, info.min_nbr - a - 1);
+		res += seq_rm_si(sa, info.n - a - 1);
 	return (res);
 }
 
@@ -72,7 +72,7 @@ int	cal_rma_4(t_stack *sa)
 
 	init_rm_info(&info, sa);
 	if (sa->util->sm_size == 1)
-		return (2 * (info.ms + 1) + info.min_nbr);
-	res = 2 * (info.min_nbr + info.ms + 1);
+		return (2 * (info.ms + 1) + info.n);
+	res = 2 * (info.n + info.ms + 1);
 	return (res);
 }

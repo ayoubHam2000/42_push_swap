@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 01:21:46 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 01:23:17 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/16 22:08:26 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	cal_mb_1(t_stack *sb)
 	t_m_info	info;
 
 	init_m_info(&info, sb);
-	res = info.min_nbr;
+	res = info.n;
 	res += sb->size - info.ms;
 	return (res);
 }
@@ -33,10 +33,10 @@ int	cal_mb_2(t_stack *sb)
 
 	init_m_info(&info, sb);
 	res = info.ms;
-	res += 3 * info.min_nbr;
-	res += info.me - info.ms + 1 - info.min_nbr;
+	res += 3 * info.n;
+	res += info.me - info.ms + 1 - info.n;
 	i = -1;
-	/*while (++i < info.min_nbr - 1)
+	/*while (++i < info.n - 1)
 		if (seq_m_si(sb, i) + 2 < sb->util->nbr_ele - sb->size)
 			res += 1;*/
 	return (res);

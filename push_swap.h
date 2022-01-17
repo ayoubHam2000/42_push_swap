@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:36:04 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 20:07:55 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/16 22:50:15 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,52 +19,68 @@
 # include <stdio.h>
 # include <string.h>
 
-# define SA 'a'
-# define SB 'b'
+# define SA 1
+# define SB 2
+# define SS 3
+# define PA 4
+# define PB 5
+# define RA 6
+# define RB 7
+# define RR 8
+# define RRA 9
+# define RRB 10
+# define RRR 11
 
 # define LEFT 0
 # define RIGHT 1
 # define _LEFT 2
 # define _RIGHT 3
 
+typedef struct s_stack t_stack;
+
 typedef struct s_util
 {
-	int	ma;
-	int	mb;
-	int	sm_size;
-	int	nbr_ele;
+	int		ma;
+	int		mb;
+	int		sm_size;
+	int		nbr_ele;
+	int		moves;
+	void	(*p)(t_stack *sa, t_stack *sb);
 }	t_util;
 
-typedef struct s_stack
+struct s_stack
 {
 	int		*s;
 	int		size;
 	char	tag;
 	t_util	*util;
-}	t_stack;
+};
 
 /* ./utils/push_swap/checker.c */
 int int_check(char *str);
 int dup_check(t_stack *s);
 /* ./utils/push_swap/push.c */
-int	ft_pa(t_stack *sa, t_stack *sb, int	affect);
-int	ft_pb(t_stack *sa, t_stack *sb, int affect);
+void ft_pa(t_stack *sa, t_stack *sb);
+void ft_pb(t_stack *sa, t_stack *sb);
 /* ./utils/push_swap/reverse_rotate.c */
-int	ft_rra(t_stack *s, int affect);
-int	ft_rrb(t_stack *s, int affect);
-int	ft_rrr(t_stack *a, t_stack *b, int affect);
+void ft_rra(t_stack *s);
+void ft_rrb(t_stack *s);
+void ft_rrr(t_stack *a, t_stack *b);
 /* ./utils/push_swap/rotate.c */
-int	ft_ra(t_stack *s, int affect);
-int	ft_rb(t_stack *s, int affect);
-int	ft_rr(t_stack *a, t_stack *b, int affect);
+void ft_ra(t_stack *s);
+void ft_rb(t_stack *s);
+void ft_rr(t_stack *a, t_stack *b);
+/* ./utils/push_swap/swap.c */
+void ft_sa(t_stack *stack);
+void ft_sb(t_stack *stack);
+void ft_ss(t_stack *sa, t_stack *sb);
+/* ./utils/push_swap/exec.c */
+void	ft_exec(t_stack *sa, t_stack *sb, int nb, int commands);
+
 /* ./utils/push_swap/stack.c */
 void *init_stack(t_stack *s, int max, char **values, char tag);
 void *init_util(void);
 void print_stack(t_stack s);
-/* ./utils/push_swap/swap.c */
-int	ft_sa(t_stack *stack, int affect);
-int	ft_sb(t_stack *stack, int affect);
-int	ft_ss(t_stack *sa, t_stack *sb, int affect);
 /* ./utils/ft_atoi.c */
 int ft_atoi(const char *str);
 /* ./utils/ft_error.c */

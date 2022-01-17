@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:32 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 20:07:28 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/16 20:14:51 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,22 @@ static void	ft_swap(t_stack *s)
 	s->s[s->size - 2] = tmp;
 }
 
-int	ft_sa(t_stack *stack, int affect)
+void	ft_sa(t_stack *stack)
 {
-	if (affect)
-	{
-		ft_swap(stack);
-		write(1, "sa\n", 3);
-	}
-	return (1);
+	ft_swap(stack);
+	write(1, "sa\n", 3);
 }
 
-int	ft_sb(t_stack *stack, int affect)
+void	ft_sb(t_stack *stack)
 {
-	if (affect)
-	{
-		ft_swap(stack);
-		write(1, "sb\n", 3);
-	}
-	return (1);
+	ft_swap(stack);
+	write(1, "sb\n", 3);
 }
 
-int	ft_ss(t_stack *sa, t_stack *sb, int affect)
+void	ft_ss(t_stack *sa, t_stack *sb)
 {
-	if (affect)
-	{
-		ft_swap(sa);
-		ft_swap(sb);
-		write(1, "ss\n", 1);
-	}
-	return (1);
+	ft_swap(sa);
+	ft_swap(sb);
+	write(1, "ss\n", 3);
 }
 
