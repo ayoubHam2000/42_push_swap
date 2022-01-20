@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:36:08 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/15 17:25:54 by ayoub            ###   ########.fr       */
+/*   Updated: 2022/01/20 23:44:13 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,20 @@ B : 20 -> 21 -> 15 -> 13 -> 14
 
 
 */
+
+
+
+/*
+
+void	exec_ma_1_part_2(t_stack *sa, t_stack *sb, t_m_info *info)
+/*ft_exec(sa, sb, info->si[1] + info->si[2] - 2, RB);
+	i = 2;
+	while (++i < info->n)
+	{
+		ft_exec(sa, sb, 1, PA);
+		exec_rr_or_ra(sa, sb, info->si[i]);
+		ft_exec(sa, sb, info->si[i] - 1, RB);
+	}
+	ft_exec(sa, sb, 1, PA | RA << 4);*/
+
+//1 4 5 3 2

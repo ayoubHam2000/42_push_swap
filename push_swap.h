@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:36:04 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 22:50:15 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/20 22:10:22 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_util
 	int		ma;
 	int		mb;
 	int		sm_size;
-	int		nbr_ele;
 	int		moves;
+	int		affect;
 	void	(*p)(t_stack *sa, t_stack *sb);
 }	t_util;
 

@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 20:37:22 by ayoub             #+#    #+#             */
-/*   Updated: 2022/01/17 00:13:25 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/17 06:33:23 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_m_info(t_m_info *info, t_stack *s);
 
 int		seq_rm_mi(t_stack *s, int i);
 int		seq_rm_si(t_stack *s, int i);
-int		init_rm_info(t_m_info *info, t_stack *s);
+void	init_rm_info(t_m_info *info, t_stack *s);
 
 int		cal_ma_1(t_stack *sa);
 int		cal_ma_2(t_stack *sa);

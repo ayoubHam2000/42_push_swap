@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:40:46 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/15 23:11:46 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/20 22:44:40 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	init_smin_size(t_stack *sa)
 	int	i;
 
 	i = 0;
+	sa->util->sm_size = 0;
 	while (i < sa->size - 1)
 	{
 		if (sa->s[i] != sa->s[i + 1] + 1)

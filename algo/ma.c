@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:41:05 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 22:08:19 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/17 03:51:36 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	cal_ma_2(t_stack *sa)
 	added_mouves = 0;
 	while (i < info.n - 1)
 	{
-		added_mouves += 2 * seq_m_si(sa, i) + 4;
+		added_mouves += 2 * seq_m_si(sa, i + 1) + 4;
 		i++;
 		if ((res + added_mouves) / (float)(i + 1) <= res / (float)(i))
 		{

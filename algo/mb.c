@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 01:21:46 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/16 22:08:26 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/20 22:10:18 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,5 @@ int	cal_mb_2(t_stack *sb)
 	res += 3 * info.n;
 	res += info.me - info.ms + 1 - info.n;
 	i = -1;
-	/*while (++i < info.n - 1)
-		if (seq_m_si(sb, i) + 2 < sb->util->nbr_ele - sb->size)
-			res += 1;*/
 	return (res);
 }
