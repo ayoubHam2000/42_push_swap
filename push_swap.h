@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:36:04 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/20 22:10:22 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/21 02:59:06 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_util
 	int		mb;
 	int		sm_size;
 	int		moves;
+	float	density;
 	int		affect;
 	void	(*p)(t_stack *sa, t_stack *sb);
 }	t_util;
@@ -85,5 +86,8 @@ void print_stack(t_stack s);
 int ft_atoi(const char *str);
 /* ./utils/ft_error.c */
 void *ft_error(void);
+
+int	ft_max(int a, int b);
+int	ft_min(int a, int b);
 
 #endif

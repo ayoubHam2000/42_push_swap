@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   exec_end.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 15:48:15 by ayoub             #+#    #+#             */
-/*   Updated: 2022/01/14 20:46:08 by ayoub            ###   ########.fr       */
+/*   Created: 2022/01/21 00:04:18 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/21 03:13:12 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "algo.h"
 
-void	*ft_error(void)
+void	exec_end(t_stack *s, t_m_info *i)
 {
-	write(2, "Error\n", 6);
-	mem_clean();
-	exit(1);
-	return (NULL);
+	if (!i || !i->n)
+		return ;
+	ft_free(i->si);
+	if (s->util->affect)
+		s->util->sm_size += i->n;
+	else
+		s->util->density = s->util->moves / (float)i->n;
 }

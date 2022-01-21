@@ -1,48 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   transform.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:35:19 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/20 22:46:31 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/21 00:14:09 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/21 00:14:20 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "algo.h"
 
-static void	ft_shift_up(t_stack *s)
+void	*transform(t_stack *sa)
 {
-	int	tmp;
 	int	i;
+	int	j;
+	int	*tmp;
 
-	tmp = s->s[s->size - 1];
-	i = s->size - 1;
-	while (i > 0)
+	tmp = ft_malloc(sizeof(int) * sa->size);
+	i = 0;
+	while (i < sa->size)
 	{
-		s->s[i] = s->s[i - 1];
-		i--;
+		j = 0;
+		tmp[i] = 0;
+		while (j < sa->size)
+		{
+			if (j != i && sa->s[j] < sa->s[i])
+				tmp[i]++;
+			j++;
+		}
+		i++;
 	}
-	s->s[0] = tmp;
+	ft_free(sa->s);
+	sa->s = tmp;
+	return (sa);
 }
-
-void	ft_ra(t_stack *s)
-{
-	ft_shift_up(s);
-	write(1, "ra\n", 3);
-}
-
-void	ft_rb(t_stack *s)
-{
-	ft_shift_up(s);
-	write(1, "rb\n", 3);
-}
-
-void	ft_rr(t_stack *a, t_stack *b)
-{
-	ft_shift_up(a);
-	ft_shift_up(b);
-	write(1, "rr\n", 3);
-}
-

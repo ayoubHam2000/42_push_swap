@@ -1,48 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   exec_rm_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:35:19 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/20 22:46:31 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/21 00:00:15 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/21 00:01:22 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "algo.h"
 
-static void	ft_shift_up(t_stack *s)
+void	exec_rmb_2(t_stack *sa, t_stack *sb)
 {
-	int	tmp;
-	int	i;
+	t_m_info	info;
+	int			i;
 
-	tmp = s->s[s->size - 1];
-	i = s->size - 1;
-	while (i > 0)
+	init_rm_info(&info, sb);
+	if (info.me == -1)
+		return (exec_end(sa, &info));
+	i = info.n + 1;
+	while (--i >= 1)
 	{
-		s->s[i] = s->s[i - 1];
-		i--;
+		ft_exec(sa, sb, info.si[i] + 1, RRB);
+		ft_exec(sa, sb, 1, PA);
 	}
-	s->s[0] = tmp;
+	ft_exec(sa, sb, info.n, RA);
+	exec_end(sa, &info);
 }
-
-void	ft_ra(t_stack *s)
-{
-	ft_shift_up(s);
-	write(1, "ra\n", 3);
-}
-
-void	ft_rb(t_stack *s)
-{
-	ft_shift_up(s);
-	write(1, "rb\n", 3);
-}
-
-void	ft_rr(t_stack *a, t_stack *b)
-{
-	ft_shift_up(a);
-	ft_shift_up(b);
-	write(1, "rr\n", 3);
-}
-

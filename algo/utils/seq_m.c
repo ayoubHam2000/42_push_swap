@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   seq_rm.c                                           :+:      :+:    :+:   */
+/*   seq_m.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aben-ham <aben-ham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 23:41:22 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/20 23:13:32 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/15 23:41:16 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/21 02:24:34 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 
-int	seq_rm_mi(t_stack *s, int i)
+int	seq_m_mi(t_stack *s, int i)
 {
 	int	c;
 	int	mi;
 	
 	mi = find_s_min(s);
-	if (s->s[mi] != s->util->sm_size)
+	if (mi == -1 || s->s[mi] != s->util->sm_size)
 		return (-1);
-	c = mi - 1;
-	while (c >= 0 && (i > 0 || i <= -1))
+	c = mi + 1;
+	while (c < s->size && (i > 0 || i <= -1))
 	{
 		if (s->s[mi] + 1 == s->s[c])
 		{
 			mi = c;
 			i--;
 		}
-		c--;
+		c++;
 	}
 	if (i == -1 && mi == find_s_min(s))
 		return (-1);
@@ -38,38 +38,41 @@ int	seq_rm_mi(t_stack *s, int i)
 		return (-1);
 }
 
-int	seq_rm_si(t_stack *s, int i)
+//from [0 to n[
+int	seq_m_si(t_stack *s, int i)
 {
 	int	m1;
 	int	m2;
 
-	m1 = seq_rm_mi(s, i - 1);
-	m2 = seq_rm_mi(s, i);
+	m1 = seq_m_mi(s, i - 1);
+	m2 = seq_m_mi(s, i);
 	if (i == 0)
-		return (s->size - m2 - 1);
-	if (m2 == -1)
 	{
 		if (s->tag == SA)
-			return (m1 - s->util->sm_size);
-		return (m1);
+			return (m2 - s->util->sm_size);
+		return (m2);
 	}
-	return (m1 - m2 - 1);
+	if (m2 == -1)
+		return (s->size - m1 - 1);
+	return (m2 - m1 - 1);
 }
 
-void	init_rm_info(t_m_info *info, t_stack *s)
+int	init_m_info(t_m_info *info, t_stack *s)
 {
 	int	i;
-
-	info->ms = seq_rm_mi(s, 0);
-	info->me = seq_rm_mi(s, -1);
-	if (info->me == -1 && info->ms != -1)
-		info->n = 1;
+	
+	info->ms = seq_m_mi(s, 0);
+	info->me = seq_m_mi(s, -1);
+	if (info->ms == -1)
+		return (0);
 	if (info->me == -1)
-		return ;
-	info->n = s->s[info->me] - s->util->sm_size + 1;
-	info->old_moves = s->util->moves;
+		info->n = 1;
+	else
+		info->n = s->s[info->me] - s->s[info->ms] + 1;
 	info->si = ft_malloc(sizeof(int) * (info->n + 1));
 	i = -1;
 	while (++i < info->n + 1)
-		info->si[i] = seq_rm_si(s, i);
+		info->si[i] = seq_m_si(s, i);
+	return (1);
 }
+

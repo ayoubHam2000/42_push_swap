@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   exec_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:35:32 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/20 22:46:09 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/21 00:04:46 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/21 00:33:50 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "algo.h"
 
-static void	ft_swap(t_stack *s)
+void	exec_init(t_stack *sa, t_stack *sb)
 {
-	int	tmp;
+	int	min;
+	int	l;
+	int	r;
 
-	if (s->size < 2)
+	if (sa->util->sm_size != 0)
 		return ;
-	tmp = s->s[s->size - 1];
-	s->s[s->size - 1] = s->s[s->size - 2];
-	s->s[s->size - 2] = tmp;
+	min = find_s_min(sa);
+	l = min;
+	r = sa->size - min - 1;
+	if (l < r + 1)
+		ft_exec(sa, sb, l, RRA);
+	else
+		ft_exec(sa, sb, r + 1, RA);
+	sa->util->sm_size++;
 }
-
-void	ft_sa(t_stack *stack)
-{
-	ft_swap(stack);
-	write(1, "sa\n", 3);
-}
-
-void	ft_sb(t_stack *stack)
-{
-	ft_swap(stack);
-	write(1, "sb\n", 3);
-}
-
-void	ft_ss(t_stack *sa, t_stack *sb)
-{
-	ft_swap(sa);
-	ft_swap(sb);
-	write(1, "ss\n", 3);
-}
-

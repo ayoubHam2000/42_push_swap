@@ -3,19 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+         #
+#    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:35:59 by aben-ham          #+#    #+#              #
-#    Updated: 2022/01/14 23:15:18 by ayoub            ###   ########.fr        #
+#    Updated: 2022/01/21 00:49:01 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #-Wall -Wextra -Werror
 CFLAGS =  -I.
-FILES = utils/*.c \
+FILES = \
+		algo/calc/*.c \
+		algo/exec/a/*.c \
+		algo/exec/b/*.c \
+		algo/exec/u/*.c \
+		algo/utils/*.c \
+		algo/main/*.c \
+		utils/other/*.c \
 		utils/memory/*.c \
-		utils/push_swap/*.c \
-		algo/*.c
+		utils/push_swap/*.c
 all:
 	gcc $(CFLAGS) main.c $(FILES) -o push_swap.out
 dis:

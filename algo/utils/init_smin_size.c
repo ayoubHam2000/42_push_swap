@@ -1,48 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   init_smin_size.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:35:19 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/20 22:46:31 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/21 00:15:56 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/21 00:16:16 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "algo.h"
 
-static void	ft_shift_up(t_stack *s)
+void	init_smin_size(t_stack *sa)
 {
-	int	tmp;
 	int	i;
 
-	tmp = s->s[s->size - 1];
-	i = s->size - 1;
-	while (i > 0)
+	i = 0;
+	sa->util->sm_size = 0;
+	while (i < sa->size - 1)
 	{
-		s->s[i] = s->s[i - 1];
-		i--;
+		if (sa->s[i] != sa->s[i + 1] + 1)
+			break ;
+		i++;
 	}
-	s->s[0] = tmp;
+	if (sa->s[i] == 0)
+		sa->util->sm_size = i + 1;
 }
-
-void	ft_ra(t_stack *s)
-{
-	ft_shift_up(s);
-	write(1, "ra\n", 3);
-}
-
-void	ft_rb(t_stack *s)
-{
-	ft_shift_up(s);
-	write(1, "rb\n", 3);
-}
-
-void	ft_rr(t_stack *a, t_stack *b)
-{
-	ft_shift_up(a);
-	ft_shift_up(b);
-	write(1, "rr\n", 3);
-}
-

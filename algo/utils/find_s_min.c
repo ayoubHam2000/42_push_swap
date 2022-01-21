@@ -1,48 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   find_s_min.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 23:35:19 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/20 22:46:31 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/21 00:14:50 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/21 00:14:59 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "algo.h"
 
-static void	ft_shift_up(t_stack *s)
+static int	find_min_form(t_stack *s, int start)
 {
-	int	tmp;
 	int	i;
+	int	res;
 
-	tmp = s->s[s->size - 1];
-	i = s->size - 1;
-	while (i > 0)
+	if (start >= s->size)
+		return (-1);
+	i = start + 1;
+	res = start;
+	while (i < s->size)
 	{
-		s->s[i] = s->s[i - 1];
-		i--;
+		if (s->s[res] > s->s[i])
+			res = i;
+		i++;
 	}
-	s->s[0] = tmp;
+	return (res);
 }
 
-void	ft_ra(t_stack *s)
+int	find_s_min(t_stack *s)
 {
-	ft_shift_up(s);
-	write(1, "ra\n", 3);
+	if (s->tag == SA)
+		return (find_min_form(s, s->util->sm_size));
+	return (find_min_form(s, 0));
 }
-
-void	ft_rb(t_stack *s)
-{
-	ft_shift_up(s);
-	write(1, "rb\n", 3);
-}
-
-void	ft_rr(t_stack *a, t_stack *b)
-{
-	ft_shift_up(a);
-	ft_shift_up(b);
-	write(1, "rr\n", 3);
-}
-
