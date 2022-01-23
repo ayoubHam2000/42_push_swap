@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 23:57:49 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/21 22:20:51 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/22 10:59:48 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,21 @@ static void sep_2(t_stack *sa, t_stack *sb, t_m_info *info, int i)
 	info->n++;
 }
 
+static void	sep_3(t_stack *sa, t_stack *sb, t_m_info *info, int a)
+{
+	if (a + 1 < info->n - a - 1)
+		ft_exec(sa, sb, a + 1, RRA);
+	else
+		ft_exec(sa, sb, info->n - a - 1, RA);
+	exec_end(sa, info);
+}
+
 void	exec_rma_2(t_stack *sa, t_stack *sb)
 {
 	int			i;
 	t_m_info	info;
 	int			a;
-	
+
 	if(!init_rm_info(&info, sa))
 		return ;
 	a = info.ms;
@@ -51,6 +60,5 @@ void	exec_rma_2(t_stack *sa, t_stack *sb)
 		else if (i != a + 1)
 			ft_exec(sa, sb, 1, RRA);
 	}
-	ft_exec(sa, sb, info.n - a - 1, RA);
-	exec_end(sa, &info);
+	sep_3(sa, sb, &info, a);
 }

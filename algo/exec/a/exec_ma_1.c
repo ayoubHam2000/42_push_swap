@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 23:06:12 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/21 20:09:37 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/22 14:58:38 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	sep_1(t_stack *sa, t_stack *sb, t_m_info *info)
 	else
 	{
 		ft_exec(sa, sb, info->si[1] - 1, PB);
-		ft_exec(sa, sb, 1, SA | RA << 4);
+		ft_exec(sa, sb, 1, PB | RA << 4);
 	}
 	return exec_end(sa, info);
 }

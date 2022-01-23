@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 00:00:03 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/21 23:06:48 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/23 12:08:24 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	spe_1(t_stack *sa, t_stack *sb, t_m_info *info)
 void	exec_mb_2(t_stack *sa, t_stack *sb)
 {
 	int			i;
+	int			ms;
 	t_m_info	info;
 	
 	if (!init_m_info(&info, sb))
@@ -28,14 +29,16 @@ void	exec_mb_2(t_stack *sa, t_stack *sb)
 	if (sb->size == 1)
 		return (spe_1(sa, sb, &info));
 	i = -1;
+	ms = sb->s[info.ms];
 	while (++i < info.n)
 	{
-		if (sb->size > 1 && sb->s[0] == sb->s[1] + 1)
+		if (sb->size > 1 && sb->s[0] == sb->s[1] + 1 && sb->s[0] == ms + info.n)
 		{
 			ft_exec(sa, sb, 2, RRB);
 			ft_exec(sa, sb, 2, PA | RA << 4);
 			info.n++;
 			i++;
+			return ;
 		}
 		else
 		{

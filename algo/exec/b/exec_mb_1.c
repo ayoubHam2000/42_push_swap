@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 23:59:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/21 23:06:51 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/22 12:52:29 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	spe_1(t_stack *sa, t_stack *sb, t_m_info *info)
 {
-	ft_exec(sa, sb, 1, PA);
+	ft_exec(sa, sb, 1, PA | RA << 4);
 	exec_end(sa, info);
 }
 

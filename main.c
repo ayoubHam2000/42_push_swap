@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/21 23:09:50 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/23 11:33:15 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ void	push_swap(t_stack *sa, t_stack *sb)
 	transform(sa);
 	init_smin_size(sa);
 	print_stack(*sa);
-	exec_init(sa, sb);
-	
-	sa->util->affect = 1;
-	ft_exec(sa, sb, sa->size / 2, PB);
-	exec_rmb_1(sa, sb);
-	/*while (1)
+
+	int	i = 0;
+	while (1)
 	{
 		if (sa->util->sm_size == sa->size + sb->size)
 			break ;
@@ -33,7 +30,8 @@ void	push_swap(t_stack *sa, t_stack *sb)
 			min_in_stack_a(sa, sb);
 		else
 			min_in_stack_b(sa, sb);
-	}*/
+		i++;
+	}
 }
 
 int	main(int ac, char **av)

@@ -1,4 +1,4 @@
-f="per.txt"
+f="per_3.txt"
 n=`cat $f | wc -l`
 i=1
 touch res.txt
