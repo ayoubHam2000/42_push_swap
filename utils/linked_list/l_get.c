@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_error.c                                     :+:      :+:    :+:   */
+/*   l_get.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 19:17:00 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 19:17:00 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/24 20:46:00 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/24 20:46:00 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
+#include "linked_list.h"
 
-void	*ft_mem_error(void)
+t_node	*l_get(t_list *list, int pos)
 {
-	write(2, "Error\n", 6);
-	mem_clean();
-	exit(1);
-	return (NULL);
+	t_node	*node;
+
+	if (pos < 0)
+		pos = l_len(list) + pos;
+	if (pos < 0)
+		return (NULL);
+	node = list->head;
+	while (node && pos > 0)
+	{
+		node = node->next;
+		pos--;
+	}
+	return (node);
 }

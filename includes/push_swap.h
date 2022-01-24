@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
-# include "utils/memory/mem.h"
+# include "mem.h"
 
 # include <stdio.h>
 # include <string.h>
@@ -82,12 +82,10 @@ void	ft_exec(t_stack *sa, t_stack *sb, int nb, int commands);
 void *init_stack(t_stack *s, int max, char **values, char tag);
 void *init_util(void);
 void print_stack(t_stack s);
-/* ./utils/ft_atoi.c */
-int ft_atoi(const char *str);
-/* ./utils/ft_error.c */
-void *ft_error(void);
 
-int	ft_max(int a, int b);
-int	ft_min(int a, int b);
+int		ft_atoi(const char *str);
+int		ft_max(int a, int b);
+int		ft_min(int a, int b);
+void	*ft_error(void);
 
 #endif

@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_error.c                                     :+:      :+:    :+:   */
+/*   l_add.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 19:17:00 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 19:17:00 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/24 19:08:58 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/24 19:08:58 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
+#include "linked_list.h"
 
-void	*ft_mem_error(void)
+void	l_append_front(t_list *list, void *p)
 {
-	write(2, "Error\n", 6);
-	mem_clean();
-	exit(1);
-	return (NULL);
+	t_node	*new;
+
+	new = l_create_node(p);
+	new->next = list->head;
+	list->head = new;
+	list->len++;
 }

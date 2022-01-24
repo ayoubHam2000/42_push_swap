@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_error.c                                     :+:      :+:    :+:   */
+/*   delete.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 19:17:00 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 19:17:00 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/24 23:33:23 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/24 23:33:23 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
+#include "LICS.h"
 
-void	*ft_mem_error(void)
+static void	del_list_nbr(t_node *node)
 {
-	write(2, "Error\n", 6);
-	mem_clean();
-	exit(1);
-	return (NULL);
+	l_delete_all(_LIST(node), NULL);
+	ft_free(node);
+}
+
+void	del_less_than_n(t_list *lists, int n)
+{
+	t_node	*node;
+	t_node	*target;
+
+	node = lists->head;
+	while (node)
+	{
+		if (l_len(_LIST(node)) == n)
+		{
+			node = node->next;
+			target = node;
+			l_delete_node(lists, target, del_list_nbr);
+		}
+		else
+			node = node->next;
+	}
 }

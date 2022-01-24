@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_error.c                                     :+:      :+:    :+:   */
+/*   l_clone.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 19:17:00 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 19:17:00 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/24 21:24:02 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/24 21:24:02 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
+#include "linked_list.h"
 
-void	*ft_mem_error(void)
+t_list	*l_clone(t_list *list)
 {
-	write(2, "Error\n", 6);
-	mem_clean();
-	exit(1);
-	return (NULL);
+	t_list	*new_list;
+	t_node	*node;
+	void	*p;
+
+	new_list = l_init(list->data_size);
+	node = list->head;
+	while (node)
+	{
+		p = ft_malloc(list->data_size);
+		ft_memcpy(p, node->p, list->data_size);
+		l_append_end(new_list, p);
+		node = node->next;
+	}
+	return (new_list);
 }

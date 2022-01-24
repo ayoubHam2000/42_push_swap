@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_error.c                                     :+:      :+:    :+:   */
+/*   l_node_del.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 19:17:00 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 19:17:00 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/24 23:24:34 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/24 23:24:34 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
+#include "linked_list.h"
 
-void	*ft_mem_error(void)
+static void	l_delete_simple(t_node *node)
 {
-	write(2, "Error\n", 6);
-	mem_clean();
-	exit(1);
-	return (NULL);
+	ft_free(node->p);
+	ft_free(node);
+}
+
+void	l_node_del(t_node *node, void	(*del)(t_node *node))
+{
+	if (!node)
+		return ;
+	if (del)
+		del(node);
+	else
+		l_delete_simple(node);
 }

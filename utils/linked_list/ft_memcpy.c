@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mem_error.c                                     :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 19:17:00 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 19:17:00 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/24 22:07:33 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/24 22:07:33 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
+#include "unistd.h"
 
-void	*ft_mem_error(void)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	write(2, "Error\n", 6);
-	mem_clean();
-	exit(1);
-	return (NULL);
+	unsigned char		*d;
+	const unsigned char	*s;
+
+	if (!dst && !src && n)
+		return (NULL);
+	d = dst;
+	s = src;
+	while (n-- > 0)
+	{
+		*d = *s;
+		d++;
+		s++;
+	}
+	return (dst);
 }

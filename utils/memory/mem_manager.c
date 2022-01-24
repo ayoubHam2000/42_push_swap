@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mem_manager.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 15:43:57 by ayoub             #+#    #+#             */
-/*   Updated: 2022/01/14 22:19:25 by ayoub            ###   ########.fr       */
+/*   Created: 2022/01/24 19:17:08 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/24 19:17:08 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mem.h"
+#include "ft_mem.h"
 
 static t_addresses	*ft_get_addresses(void)
 {

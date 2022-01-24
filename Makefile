@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 #-Wall -Wextra -Werror
-CFLAGS =  -I.
+CFLAGS =  -I includes/
 FILES = \
 		algo/calc/*.c \
 		algo/exec/a/*.c \
@@ -22,8 +22,14 @@ FILES = \
 		utils/other/*.c \
 		utils/memory/*.c \
 		utils/push_swap/*.c
-all:
-	gcc $(CFLAGS) main.c $(FILES) -o push_swap.out
-dis:
-	gcc $(CFLAGS) display.c $(FILES) -o dis_push_swap.out
+LICS = \
+	utils/LICS/*.c \
+	utils/linked_list/*.c \
+	utils/memory/*.c
 
+all:
+	gcc $(CFLAGS) main.c $(FILES) -o push_swap.exe
+dis:
+	gcc $(CFLAGS) display.c $(FILES) -o dis_push_swap.exe
+lics:
+	gcc $(CFLAGS) lics.c $(LICS) -o lics.exe

@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"mem.h": "c",
+		"linked_list.h": "c",
+		"memory.h": "c",
+		"lics.h": "c"
+	}
+}
