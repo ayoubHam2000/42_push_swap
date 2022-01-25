@@ -1,4 +1,5 @@
 import random
+import sys
 
 def case1(lists, n):
 	lists.append([n])
@@ -12,10 +13,12 @@ def case2(lists, n):
 
 def case3(lists, n):
 	#largest end that is smaller than n
-	largest_end = lists[0]
+	largest_end = None
 	for item in lists:
 		end = item[-1]
-		if (end <= n and end > largest_end[-1]):
+		if (end < n and not largest_end):
+			largest_end = item
+		elif (end < n and end > largest_end[-1]):
 			largest_end = item
 	new_item = largest_end + [n]
 	new_list = [item for item in lists if len(item) != len(new_item)]
@@ -45,8 +48,8 @@ def LIS(arr):
 		else:
 			case3(lists, n)
 	max_length = max([len(item) for item in lists])
-	new_list = [item for item in lists if len(item) == max_length]
-	return new_list
+	lists = [item for item in lists if len(item) == max_length]
+	return lists
 
 def LICS(arr):
 	lists = []
@@ -58,11 +61,22 @@ def LICS(arr):
 	new_list = [item for item in lists if len(item) == max_length]
 	return new_list
 
+# arr = []
+# for i in range(1, len(sys.argv)):
+# 	arr.append(int(sys.argv[i]))
+# r = LIS(arr[::-1])
+# for item in r:
+# 	print(item[::-1])
+# 	print(len(item))
+# 	print("================")
+
 n = 100
 a = [i for i in range(0, n)]
 m = 0
+i = 0
 for _ in range(0, 1000):
 	random.shuffle(a)
 	r = LICS(a[::-1])
 	m = m + len(r[0])
-print(m / 1000)
+	i = i + 1
+	print(m / i)

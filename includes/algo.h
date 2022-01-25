@@ -13,6 +13,7 @@
 #ifndef ALGO_H
 # define ALGO_H
 
+# include "LICS.h"
 # include "push_swap.h"
 
 typedef struct	s_m_info

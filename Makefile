@@ -21,15 +21,13 @@ FILES = \
 		algo/main/*.c \
 		utils/other/*.c \
 		utils/memory/*.c \
-		utils/push_swap/*.c
-LICS = \
-	utils/LICS/*.c \
-	utils/linked_list/*.c \
-	utils/memory/*.c
+		utils/push_swap/*.c \
+		utils/LICS/*.c \
+		utils/linked_list/*.c
 
 all:
 	gcc $(CFLAGS) main.c $(FILES) -o push_swap.exe
 dis:
 	gcc $(CFLAGS) display.c $(FILES) -o dis_push_swap.exe
 lics:
-	gcc $(CFLAGS) lics.c $(LICS) -o lics.exe
+	gcc $(CFLAGS) main.c $(FILES) -o lics.exe

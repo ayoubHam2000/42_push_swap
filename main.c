@@ -32,9 +32,30 @@ void	push_swap(t_stack *sa, t_stack *sb)
 			min_in_stack_b(sa, sb);
 		i++;
 	}
+}	
+
+void	lics(int ac, char **av)
+{
+	t_list	*lists;
+	int		*arr;
+	int		i;
+
+	arr = ft_malloc((ac - 1) * sizeof(int));
+	i = 0;
+	while (++i < ac)
+		arr[i - 1] = atoi(av[i]);
+	i = 0;
+	while (i < 100000)
+	{
+		lists = LIS(arr, ac - 1);
+		print_lists(lists);
+		printf("length = %d\n", l_len(_LIST(lists->head)));
+		i++;
+	}
+	mem_clean();
 }
 
-int	main(int ac, char **av)
+void	push(int ac, char **av)
 {
 	t_stack	sa;
 	t_stack	sb;
@@ -49,5 +70,11 @@ int	main(int ac, char **av)
 	if (sa.size > 1)
 		push_swap(&sa, &sb);
 	mem_clean();
+}
+
+int	main(int ac, char **av)
+{
+	//push(ac, av);
+	lics(ac, av);
 	return (0);
 }

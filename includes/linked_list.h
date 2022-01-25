@@ -40,5 +40,10 @@ void	l_del_node(t_node *node, void (*del)(t_node *node));
 void	l_delete_all(t_list *list, void	(*del)(t_node *node));
 void	l_delete_index(t_list *list, size_t index, void (*del)(t_node *node));
 void	l_delete_node(t_list *list, t_node *node, void (*del)(t_node *node));
+void	l_del_cond(
+		t_list *lists,
+		void *p,
+		int (*condition)(t_node *node, void *p),
+		void (*del)(t_node *node));
 
 #endif

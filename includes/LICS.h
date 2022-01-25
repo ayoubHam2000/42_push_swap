@@ -20,6 +20,7 @@
 # define _LIST(x) ((t_list *)x->p)
 
 
+void	del_list_nbr(t_node *node);
 void	del_same_len(t_list *lists, t_list *new);
 
 void	*create_list();
@@ -30,5 +31,11 @@ t_node	*clone_list_nbr(t_node *node);
 
 void	print_list_nbr(t_list *list);
 void	print_lists(t_list *list);
+
+
+void	lis_case1(t_list *lists, int n);
+void	lis_case2(t_list *lists, int n);
+void	lis_case3(t_list *lists, int n);
+t_list	*LIS(int arr[], int size);
 
 #endif

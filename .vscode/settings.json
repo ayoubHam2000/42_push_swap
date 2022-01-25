@@ -3,6 +3,8 @@
 		"mem.h": "c",
 		"linked_list.h": "c",
 		"memory.h": "c",
-		"lics.h": "c"
+		"lics.h": "c",
+		"algo.h": "c",
+		"push_swap.h": "c"
 	}
 }
