@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   l_node_del.c                                       :+:      :+:    :+:   */
+/*   l_del_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -18,7 +18,7 @@ static void	l_delete_simple(t_node *node)
 	ft_free(node);
 }
 
-void	l_node_del(t_node *node, void	(*del)(t_node *node))
+void	l_del_node(t_node *node, void (*del)(t_node *node))
 {
 	if (!node)
 		return ;

@@ -20,10 +20,13 @@
 # define _LIST(x) ((t_list *)x->p)
 
 
-void	del_less_than_n(t_list *lists, int n);
+void	del_same_len(t_list *lists, t_list *new);
 
-void	*create_list(size_t data_size);
+void	*create_list();
 void	*create_nbr(int nbr);
+
+t_node	*clone_nbr(t_node *node);
+t_node	*clone_list_nbr(t_node *node);
 
 void	print_list_nbr(t_list *list);
 void	print_lists(t_list *list);

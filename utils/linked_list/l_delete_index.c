@@ -28,14 +28,14 @@ void	l_delete_index(t_list *list, size_t index, void (*del)(t_node *node))
 	if (index == 0)
 	{
 		tmp = node->next;
-		l_node_del(node, del);
+		l_del_node(node, del);
 		list->head = tmp;
 	}
 	else
 	{
 		before = l_get(list, index - 1);
 		before->next = node->next;
-		l_node_del(node, del);
+		l_del_node(node, del);
 	}
 	list->len--;
 }

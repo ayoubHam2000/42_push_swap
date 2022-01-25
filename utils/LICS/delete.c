@@ -15,10 +15,11 @@
 static void	del_list_nbr(t_node *node)
 {
 	l_delete_all(_LIST(node), NULL);
+	ft_free(node->p);
 	ft_free(node);
 }
 
-void	del_less_than_n(t_list *lists, int n)
+void	del_same_len(t_list *lists, t_list *new)
 {
 	t_node	*node;
 	t_node	*target;
@@ -26,10 +27,10 @@ void	del_less_than_n(t_list *lists, int n)
 	node = lists->head;
 	while (node)
 	{
-		if (l_len(_LIST(node)) == n)
+		if (_LIST(node) != new && l_len(_LIST(node)) == l_len(new))
 		{
-			node = node->next;
 			target = node;
+			node = node->next;
 			l_delete_node(lists, target, del_list_nbr);
 		}
 		else

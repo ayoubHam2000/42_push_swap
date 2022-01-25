@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   clone.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 22:07:33 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 22:07:33 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/25 11:54:12 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/25 11:54:12 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unistd.h"
+#include "LICS.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+t_node	*clone_nbr(t_node *node)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	t_node	*new_node;
 
-	if (!dst && !src && n)
-		return (NULL);
-	d = dst;
-	s = src;
-	while (n-- > 0)
-	{
-		*d = *s;
-		d++;
-		s++;
-	}
-	return (dst);
+	new_node = l_create_node(NULL);
+	new_node->p = ft_malloc(sizeof(int));
+	_INT(new_node) = _INT(node);
+	return (new_node);
+}
+
+t_node	*clone_list_nbr(t_node *node)
+{
+	t_node	*new_node;
+
+	new_node = l_create_node(NULL);
+	new_node->p = l_clone(_LIST(node), clone_nbr);
+	return (new_node);
 }

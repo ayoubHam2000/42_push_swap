@@ -17,10 +17,10 @@ void	l_append_end(t_list *list, void *p)
 	t_node	*new;
 	t_node	*last;
 
+	new = l_create_node(p);
 	if (list->head)
 	{
 		last = l_get(list, -1);
-		new = l_create_node(p);
 		last->next = new;
 	}
 	else

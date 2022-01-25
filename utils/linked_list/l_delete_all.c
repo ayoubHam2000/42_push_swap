@@ -24,7 +24,7 @@ void	l_delete_all(t_list *list, void	(*del)(t_node *node))
 	{
 		target = node;
 		node = node->next;
-		l_node_del(node, del);
+		l_del_node(target, del);
 	}
-	ft_free(list);
+	list->head = NULL;
 }

@@ -16,12 +16,12 @@ void	*create_nbr(int nbr)
 {
 	int	*p;
 
-	p = malloc(sizeof(int));
+	p = ft_malloc(sizeof(int));
 	*p = nbr;
 	return (p);
 }
 
-void	*create_list(size_t data_size)
+void	*create_list()
 {
-	return (l_init(data_size));
+	return (l_init());
 }

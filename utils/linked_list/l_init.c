@@ -12,13 +12,12 @@
 
 #include "linked_list.h"
 
-void	*l_init(size_t data_size)
+void	*l_init()
 {
 	t_list	*new_list;
 
 	new_list = ft_malloc(sizeof(t_list));
 	new_list->head = NULL;
 	new_list->len = 0;
-	new_list->data_size = data_size;
 	return (new_list);
 }
