@@ -6,7 +6,7 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:35:59 by aben-ham          #+#    #+#              #
-#    Updated: 2022/01/21 00:49:01 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/01/25 22:22:31 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ FILES = \
 		utils/push_swap/*.c \
 		utils/LICS/*.c \
 		utils/linked_list/*.c \
+		algo/main/*.c \
 		algo/utils/*.c 
 
 all:

@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 20:15:25 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/23 11:35:10 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:34:43 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ static void	exe_seq(t_stack *sa, t_stack *sb, int commands)
 		if (sa->util->affect)
 		{
 			exe_command(sa, sb, c);
-			print_stack(*sa);
-			print_stack(*sb);
+			//print_stack(*sa);
+			//print_stack(*sb);
 			//getchar();
 		}
 		sa->util->moves++;

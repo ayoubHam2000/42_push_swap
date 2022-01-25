@@ -6,71 +6,55 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/23 11:33:15 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:32:38 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 
-#define IN_LIS 1
-#define NIN_LIS 2
-#define NR_LIS 3
-#define NL_LIS 4
-#define TO_LEFT 1
-#define TO_RIGHT 2
-
-//lis will always have len >= 2
-int		state_n_in_lis(t_stack *sa, t_list *lis, int n)
+int	find_right_pos(t_stack *sa, int b)
 {
-	t_node	*node1;
-	t_node	*node2;
-
-	node1 = lis->head;
-	node2 = l_get(lis, -1);
-	while (node1)
-	{
-		if (n == _INT(node1))
-			return (IN_LIS);
-		else if ((node1 == lis->head && _INT(node1) < n && _INT(node2) < n)
-				|| (node1 != lis->head && _INT(node1) > n && _INT(node2) < n))
-			break ;
-		node1 = node1->next;
-		node2 = node1;
-	}
-	if (sa->s[sa->size - 2] == _INT(node2))
-		return (NR_LIS);
-	else if (sa->s[0] == _INT(node1))
-		return (NL_LIS);
-	return (NIN_LIS);
+	return (1);
 }
 
-void	to_stack_b(t_stack *sa, t_stack *sb, t_list *lis)
+void	exec_best(t_stack *sa, t_stack *sb)
 {
-	int	n;
-	int	n_state;
+	int		i;
+	int		right_pos;
+	void	(*rule)(t_stack *sa, t_stack *sb, int a, int b);
+	void	(*f)(t_stack *sa, t_stack *sb, int a, int b);
+	int		old_moves;
+	int		a;
+	int		b;
 
-	n = sa->s[sa->size - 1];
-	n_state = state_n_in_lis(sa, lis, n);
-	if (n_state == IN_LIS)
-		ft_exec(sa, sb, 1, RA);
-	else if (n_state == NIN_LIS)
-		ft_exec(sa, sb, 1, PB);
-	else if (n_state == NR_LIS)
+	i = -1;
+	sa->util->affect = 0;
+	old_moves = 0;
+	while (++i < sb->size)
 	{
-		ft_exec(sa, sb, 1, SA);
-		ft_exec(sa, sb, 2, RA);
+		right_pos = find_right_pos(sa, sb->s[i]);
+		rule = get_best_rule(sa, sb, right_pos, sb->s[i]);
+		sa->util->moves = 0;
+		rule(sa, sb, right_pos, sb->s[i]);
+		if (old_moves == 0 || old_moves > sa->util->moves)
+		{
+			old_moves = sa->util->moves;
+			a = right_pos;
+			b = sb->s[i];
+			f = rule;
+		}
 	}
-	else if (n_state == NL_LIS)
-	{
-		ft_exec(sa, sb, 1, RRA);
-		ft_exec(sa, sb, 1, SA);
-		ft_exec(sa, sb, 2, RA);
-	}
+	sa->util->affect = 1;
+	f(sa, sb, a, b);
 }
 
-t_list	*get_lis(t_list *lics)
+void	to_stack_a(t_stack *sa, t_stack *sb)
 {
-	return (_LIST(lics->head));
+	while (sa->util->sm_size != sa->size + sb->size)
+	{
+		exec_best(sa, sb);
+		sa->util->sm_size++;
+	}
 }
 
 void	push_swap(t_stack *sa, t_stack *sb)
@@ -82,7 +66,11 @@ void	push_swap(t_stack *sa, t_stack *sb)
 	lic = get_lis(LICS(sa->s, sa->size));
 	print_list_nbr(lic);
 	sa->util->affect = 1;
+	sa->util->sm_size = lic->len;
 	to_stack_b(sa, sb, lic);
+	to_stack_a(sa, sb);
+	l_delete_all(lic, NULL);
+	free(lic);
 }	
 
 void	push(int ac, char **av)

@@ -6,5 +6,6 @@
 		"lics.h": "c",
 		"algo.h": "c",
 		"push_swap.h": "c"
-	}
+	},
+	"C_Cpp.default.includePath": ["includes/"]
 }
