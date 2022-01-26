@@ -23,6 +23,21 @@ int main()
     printf("%f\n", f);
 }
 
+void	lics(int ac, char **av)
+{
+	t_list	*lists;
+	int		*arr;
+	int		i;
+
+	arr = ft_malloc((ac - 1) * sizeof(int));
+	i = 0;
+	while (++i < ac)
+		arr[i - 1] = atoi(av[i]);
+	lists = LICS(arr, ac - 1);
+	print_lists(lists);
+	printf("length = %d\n", l_len(_LIST(lists->head)));
+}
+
 /*
 in B
 rotate or swap

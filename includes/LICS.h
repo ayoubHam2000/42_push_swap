@@ -16,8 +16,8 @@
 # include "linked_list.h"
 # include "stdio.h"
 
-# define _INT(x) (*(int *)x->p)
-# define _LIST(x) ((t_list *)x->p)
+# define _INT(x) (*(int *)(x)->p)
+# define _LIST(x) ((t_list *)(x)->p)
 
 
 void	del_list_nbr(t_node *node);
@@ -36,6 +36,8 @@ void	print_lists(t_list *list);
 void	lis_case1(t_list *lists, int n);
 void	lis_case2(t_list *lists, int n);
 void	lis_case3(t_list *lists, int n);
-t_list	*LIS(int arr[], int size);
+void	keep_longest(t_list *lists);
+t_list	*LIS(int *arr, int size);
+t_list	*LICS(int *arr, int size);
 
 #endif

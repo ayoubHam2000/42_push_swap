@@ -12,10 +12,8 @@
 
 #include "push_swap.h"
 
-void	*ft_error(void)
+void	ft_error(void)
 {
 	write(2, "Error\n", 6);
-	mem_clean();
 	exit(1);
-	return (NULL);
 }

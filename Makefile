@@ -11,23 +11,18 @@
 # **************************************************************************** #
 
 #-Wall -Wextra -Werror
+DEBUG = -fdiagnostics-color=always -g
 CFLAGS =  -I includes/
 FILES = \
-		algo/calc/*.c \
-		algo/exec/a/*.c \
-		algo/exec/b/*.c \
-		algo/exec/u/*.c \
-		algo/utils/*.c \
-		algo/main/*.c \
 		utils/other/*.c \
-		utils/memory/*.c \
 		utils/push_swap/*.c \
 		utils/LICS/*.c \
-		utils/linked_list/*.c
+		utils/linked_list/*.c \
+		algo/utils/*.c 
 
 all:
-	gcc $(CFLAGS) main.c $(FILES) -o push_swap.exe
+	gcc $(CFLAGS) $(DEBUG) main.c $(FILES) -o push_swap.exe
 dis:
-	gcc $(CFLAGS) display.c $(FILES) -o dis_push_swap.exe
+	gcc $(CFLAGS) $(DEBUG) display.c $(FILES) -o dis_push_swap.exe
 lics:
-	gcc $(CFLAGS) main.c $(FILES) -o lics.exe
+	gcc $(CFLAGS) $(DEBUG) 	main.c $(FILES) -o lics.exe

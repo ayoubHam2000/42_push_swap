@@ -13,6 +13,8 @@
 #ifndef LINKED_LIST_H
 # define LINKED_LIST_H
 
+# include <unistd.h>
+# include <stdlib.h>
 # include "ft_mem.h"
 
 typedef struct s_node t_node;

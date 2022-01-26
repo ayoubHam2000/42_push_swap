@@ -15,8 +15,8 @@
 void	del_list_nbr(t_node *node)
 {
 	l_delete_all(_LIST(node), NULL);
-	ft_free(node->p);
-	ft_free(node);
+	free(node->p);
+	free(node);
 }
 
 void	del_same_len(t_list *lists, t_list *new)

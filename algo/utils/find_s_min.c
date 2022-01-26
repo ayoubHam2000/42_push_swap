@@ -30,9 +30,7 @@ static int	find_min_form(t_stack *s, int start)
 	return (res);
 }
 
-int	find_s_min(t_stack *s)
+int	min_pos(t_stack *s)
 {
-	if (s->tag == SA)
-		return (find_min_form(s, s->util->sm_size));
 	return (find_min_form(s, 0));
 }

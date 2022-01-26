@@ -32,7 +32,7 @@ void	*transform(t_stack *sa)
 		}
 		i++;
 	}
-	ft_free(sa->s);
+	free(sa->s);
 	sa->s = tmp;
 	return (sa);
 }

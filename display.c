@@ -82,7 +82,7 @@ void	print_commands(char (*log)[4], int len)
 
 void	push_swap(t_stack *a, t_stack *b)
 {
-	char	command[3];
+	char	command[4];
 	char	log[1000][4];
 	int		i;
 

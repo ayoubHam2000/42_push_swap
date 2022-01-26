@@ -81,11 +81,12 @@ void	ft_exec(t_stack *sa, t_stack *sb, int nb, int commands);
 /* ./utils/push_swap/stack.c */
 void *init_stack(t_stack *s, int max, char **values, char tag);
 void *init_util(void);
+void	init_push(t_stack *sa, t_stack *sb, int ac, char **av);
 void print_stack(t_stack s);
 
 int		ft_atoi(const char *str);
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
-void	*ft_error(void);
+void	ft_error(void);
 
 #endif

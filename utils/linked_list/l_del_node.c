@@ -14,8 +14,8 @@
 
 static void	l_delete_simple(t_node *node)
 {
-	ft_free(node->p);
-	ft_free(node);
+	free(node->p);
+	free(node);
 }
 
 void	l_del_node(t_node *node, void (*del)(t_node *node))

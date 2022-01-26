@@ -3,19 +3,8 @@
         {
             "type": "cppbuild",
             "label": "C/C++: gcc.exe build active file",
-            "command": "C:\\ay\\tools\\TDM\\bin\\gcc.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-I",
-                "${workspaceFolder}/includes/",
-                "-g",
-                "${workspaceFolder}\\lics.c",
-                "${workspaceFolder}\\utils\\LICS\\*.c",
-                "${workspaceFolder}\\utils\\linked_list\\*.c",
-                "${workspaceFolder}\\utils\\memory\\*.c",
-                "-o",
-                "${workspaceFolder}\\lics.exe"
-            ],
+            "command": "make",
+            "args": [],
             "options": {
                 "cwd": "${fileDirname}"
             },

@@ -25,12 +25,12 @@ void	*init_stack(t_stack *s, int max, char **values, char tag)
 		if (int_check(values[i]))
 			s->s[max - i - 1] = ft_atoi(values[i]);
 		else
-			return (ft_error());
+			ft_error();
 		i++;
 		s->size++;
 	}
 	if (!dup_check(s))
-		return (ft_error());
+		ft_error();
 	return (s);
 }
 
@@ -46,6 +46,18 @@ void	*init_util()
 	util->affect = -1;
 	util->p = NULL;
 	return (util);
+}
+
+void	init_push(t_stack *sa, t_stack *sb, int ac, char **av)
+{
+	t_util	*util;
+
+	av++;
+	init_stack(sa, ac - 1, av, SA);
+	init_stack(sb, ac - 1, NULL, SB);
+	util = init_util();
+	sa->util = util;
+	sb->util = util;
 }
 
 void	print_stack(t_stack s)
