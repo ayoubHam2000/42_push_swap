@@ -6,9 +6,10 @@ echo -n "" > res.txt
 while [ $i -le $n ]
 do
 	permutation=`cat $f | head -$i | tail -1`
-	number=`./push_swap.out $permutation | wc -l`
-	number=`echo $number - 1 | bc`
-	echo "$i=$permutation=$number" >> res.txt
+	number=`./push_swap.exe $permutation | wc -l`
+	number=`echo $number - 2 | bc`
+	last=`./push_swap.exe $permutation | tail -1`
+	echo "$i=$permutation=$number=$last" >> res.txt
 	i=`echo $i + 1 | bc`
 done
 cat res.txt | sort -n -k 3 -t "="

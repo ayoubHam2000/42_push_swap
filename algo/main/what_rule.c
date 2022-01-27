@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 21:22:24 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/25 22:10:37 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/27 03:08:06 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	exec_rule4(t_stack *sa, t_stack *sb, int a, int b)
 	al = a + 1;
 	ft_exec(sa, sb, ft_min(b + 1, al), RRR);
 	ft_exec(sa, sb, al - ft_min(b + 1, al), RRA);
-	ft_exec(sa, sb, b - ft_min(b + 1, al), RRB);
+	ft_exec(sa, sb, b + 1 - ft_min(b + 1, al), RRB);
 	ft_exec(sa, sb, 1, PA);
 }
 

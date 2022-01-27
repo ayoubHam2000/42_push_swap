@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/25 22:32:38 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/27 03:30:29 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,16 +90,30 @@ void	adjust(t_stack *sa, t_stack *sb)
 		ft_exec(sa, sb, r, RA);
 }
 
+int		check_sort(t_stack *sa)
+{
+	int	i;
+
+	i = 0;
+	while (i + 1 < sa->size)
+	{
+		if (sa->s[i] < sa->s[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 void	push_swap(t_stack *sa, t_stack *sb)
 {
 	t_list	*lic;
 
 	transform(sa);
-	print_stack(*sa);
+	//print_stack(*sa);
 	lic = LICS(sa->s, sa->size);
-	print_lists(lic);
+	//print_lists(lic);
 	lic = get_lis(lic);
-	print_list_nbr(lic);
+	//print_list_nbr(lic);
 	sa->util->affect = 1;
 	sa->util->sm_size = lic->len;
 	to_stack_b(sa, sb, lic);
@@ -107,6 +121,8 @@ void	push_swap(t_stack *sa, t_stack *sb)
 	adjust(sa, sb);
 	l_delete_all(lic, NULL);
 	free(lic);
+	printf("%d\n", check_sort(sa));
+	//print_stack(*sa);
 }	
 
 void	push(int ac, char **av)

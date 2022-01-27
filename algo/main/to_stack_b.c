@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 21:02:24 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/25 21:03:14 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/27 02:41:59 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ void	to_stack_b(t_stack *sa, t_stack *sb, t_list *lis)
 		n_state = state_n_in_lis(sa, lis, n);
 		if (n_state == IN_LIS)
 			ft_exec(sa, sb, 1, RA);
-		else if (n_state == NIN_LIS)
+		else
+			ft_exec(sa, sb, 1, PB);
+		/*else if (n_state == NIN_LIS)
 			ft_exec(sa, sb, 1, PB);
 		else if (n_state == NR_LIS)
 			ft_exec(sa, sb, 1, SA);
@@ -89,6 +91,6 @@ void	to_stack_b(t_stack *sa, t_stack *sb, t_list *lis)
 			if (sa->size == sa->util->sm_size)
 				break ;
 			ft_exec(sa, sb, 2, RA);
-		}
+		}*/
 	}
 }
