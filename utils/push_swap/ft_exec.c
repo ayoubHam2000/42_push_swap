@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void exe_command(t_stack *sa, t_stack *sb, int command)
+static void	exe_command(t_stack *sa, t_stack *sb, int command)
 {
 	if (command == SA)
 		ft_sa(sa);
@@ -47,12 +47,7 @@ static void	exe_seq(t_stack *sa, t_stack *sb, int commands)
 		c = commands & 0b1111;
 		commands = commands >> 4;
 		if (sa->util->affect)
-		{
 			exe_command(sa, sb, c);
-			//print_stack(*sa);
-			//print_stack(*sb);
-			//getchar();
-		}
 		sa->util->moves++;
 	}
 }

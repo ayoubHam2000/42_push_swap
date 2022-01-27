@@ -37,16 +37,15 @@ static int	con_dup(t_node *node, void *p)
 	t_node	*n1;
 	t_node	*n2;
 
-
-	list1 = _LIST(node);
-	list2 = _LIST((t_node *)p);
+	list1 = _list(node);
+	list2 = _list((t_node *)p);
 	if (list1 == list2)
 		return (0);
 	n1 = list1->head;
 	n2 = list2->head;
 	while (n1)
 	{
-		if (_INT(n1) != _INT(n2))
+		if (_int(n1) != _int(n2))
 			return (0);
 		n1 = n1->next;
 		n2 = n2->next;
@@ -54,7 +53,7 @@ static int	con_dup(t_node *node, void *p)
 	return (1);
 }
 
-static void del_dup(t_list *lists)
+static void	del_dup(t_list *lists)
 {
 	t_node	*node;
 
@@ -66,14 +65,14 @@ static void del_dup(t_list *lists)
 	}
 }
 
-t_list	*LICS(int *arr, int size)
+t_list	*lics(int *arr, int size)
 {
 	t_list	*lists;
 	t_list	*lic_lists;
 	int		*xx;
 	int		i;
 
-	xx = malloc(sizeof(int) * (size * 2));
+	xx = ft_malloc(sizeof(int) * (size * 2));
 	i = -1;
 	while (++i < size * 2)
 		xx[i] = arr[i % size];
@@ -82,7 +81,7 @@ t_list	*LICS(int *arr, int size)
 	xx += size;
 	while (++i < size)
 	{
-		lic_lists = LIS(xx, size);
+		lic_lists = lis(xx, size);
 		append_lists(lists, lic_lists);
 		l_delete_all(lic_lists, del_lic_nodes);
 		free(lic_lists);

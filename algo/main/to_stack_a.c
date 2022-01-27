@@ -24,7 +24,7 @@ static int	find_right_pos(t_stack *sa, int b)
 	while (i < sa->size)
 	{
 		if (sa->s[j] > sa->s[i] && ((sa->s[j] < b && sa->s[i] < b)
-			|| (sa->s[j] > b && sa->s[i] > b)))
+				|| (sa->s[j] > b && sa->s[i] > b)))
 			return (i);
 		else if (sa->s[j] < b && b < sa->s[i])
 			return (i);

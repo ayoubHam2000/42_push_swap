@@ -20,8 +20,8 @@ static int	is_the_smallest(t_list *lists, int n)
 	list = lists->head;
 	while (list)
 	{
-		end = l_get(_LIST(list), 0);
-		if (n > _INT(end))
+		end = l_get(_list(list), 0);
+		if (n > _int(end))
 			return (0);
 		list = list->next;
 	}
@@ -36,8 +36,8 @@ static int	is_the_largest(t_list *lists, int n)
 	list = lists->head;
 	while (list)
 	{
-		end = l_get(_LIST(list), 0);
-		if (n < _INT(end))
+		end = l_get(_list(list), 0);
+		if (n < _int(end))
 			return (0);
 		list = list->next;
 	}
@@ -49,7 +49,7 @@ static int	con_less_than(t_node *node, void *p)
 	size_t	max_len;
 
 	max_len = *(size_t *)p;
-	if (l_len(_LIST(node)) < max_len)
+	if (l_len(_list(node)) < max_len)
 		return (1);
 	return (0);
 }
@@ -62,19 +62,19 @@ void	keep_longest(t_list *lists)
 	node = lists->head;
 	if (!node)
 		return ;
-	max_len = l_len(_LIST(node));
+	max_len = l_len(_list(node));
 	node = node->next;
 	while (node)
 	{
-		if (max_len < l_len(_LIST(node)))
-			max_len = l_len(_LIST(node));
+		if (max_len < l_len(_list(node)))
+			max_len = l_len(_list(node));
 		node = node->next;
 	}
 	l_del_cond(lists, &max_len, con_less_than, del_list_nbr);
 }
 
 //backward (--i >= 0)
-t_list	*LIS(int *arr, int size)
+t_list	*lis(int *arr, int size)
 {
 	t_list	*lists;
 	int		i;

@@ -12,7 +12,7 @@
 
 #include "linked_list.h"
 
-void	l_delete_all(t_list *list, void	(*del)(t_node *node))
+void	l_delete_all(t_list *list, void (*del)(t_node *node))
 {
 	t_node	*node;
 	t_node	*target;

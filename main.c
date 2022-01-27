@@ -16,12 +16,7 @@ void	push_swap(t_stack *sa, t_stack *sb)
 {
 	t_list	*lic;
 
-	//transform(sa);
-	//print_stack(*sa);
-	lic = LICS(sa->s, sa->size);
-	//print_lists(lic);
-	lic = get_lis(lic, sa->s[0]);
-	//print_list_nbr(lic);
+	lic = get_lis(lics(sa->s, sa->size), sa->s[0]);
 	sa->util->affect = 1;
 	sa->util->sm_size = lic->len;
 	to_stack_b(sa, sb, lic);
@@ -29,11 +24,9 @@ void	push_swap(t_stack *sa, t_stack *sb)
 	adjust(sa, sb);
 	l_delete_all(lic, NULL);
 	free(lic);
-	printf("%d\n", check_sort(sa));
-	//print_stack(*sa);
 }	
 
-void	push(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack	sa;
 	t_stack	sb;
@@ -42,10 +35,5 @@ void	push(int ac, char **av)
 	if (sa.size > 1)
 		push_swap(&sa, &sb);
 	free(sa.util);
-}
-
-int	main(int ac, char **av)
-{
-	push(ac, av);
 	return (0);
 }

@@ -41,4 +41,3 @@ void	ft_ss(t_stack *sa, t_stack *sb)
 	ft_swap(sb);
 	write(1, "ss\n", 3);
 }
-

@@ -16,7 +16,7 @@ void	adjust(t_stack *sa, t_stack *sb)
 {
 	int	l;
 	int	r;
-	
+
 	l = min_pos(sa);
 	r = sa->size - l - 1;
 	if (l + 1 < r)

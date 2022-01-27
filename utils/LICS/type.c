@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   type.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 20:24:37 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 20:24:37 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/27 23:22:07 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/27 23:22:07 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LICS.h"
 
-void	print_list_nbr(t_list *list)
+int	_int(t_node *x)
 {
-	t_node *tmp;
-
-	tmp = list->head;
-	printf("[");
-	while (tmp)
-	{
-		printf("%d", _INT(tmp));
-		tmp = tmp->next;
-		if (tmp)
-			printf(", ");
-	}
-	printf("]\n");
+	return (*(int *)x->p);
 }
 
-void	print_lists(t_list *list)
+t_list	*_list(t_node *x)
 {
-	t_node *tmp;
-
-	tmp = list->head;
-	while (tmp)
-	{
-		print_list_nbr(_LIST(tmp));
-		tmp = tmp->next;
-	}
+	return ((t_list *)(x)->p);
 }

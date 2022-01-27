@@ -34,17 +34,14 @@ void	*init_stack(t_stack *s, int max, char **values, char tag)
 	return (s);
 }
 
-void	*init_util()
+void	*init_util(void)
 {
 	t_util	*util;
 
 	util = ft_malloc(sizeof(t_util));
-	util->ma = -1;
-	util->mb = -1;
 	util->sm_size = 0;
 	util->moves = 0;
-	util->affect = -1;
-	util->p = NULL;
+	util->affect = 0;
 	return (util);
 }
 
@@ -58,33 +55,4 @@ void	init_push(t_stack *sa, t_stack *sb, int ac, char **av)
 	util = init_util();
 	sa->util = util;
 	sb->util = util;
-}
-
-void	print_stack(t_stack s)
-{
-	int	i;
-
-	i = s.size - 1;
-	while (i >= 0)
-	{
-		printf("%d", s.s[s.size - i - 1]);
-		if (i > 0)
-			printf(" -> ");
-		i--;
-	}
-	printf("\n");
-}
-
-int	check_sort(t_stack *sa)
-{
-	int	i;
-
-	i = 0;
-	while (i + 1 < sa->size)
-	{
-		if (sa->s[i] < sa->s[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }

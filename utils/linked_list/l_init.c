@@ -12,7 +12,7 @@
 
 #include "linked_list.h"
 
-void	*l_init()
+void	*l_init(void)
 {
 	t_list	*new_list;
 

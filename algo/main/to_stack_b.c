@@ -20,19 +20,19 @@
 
 static int	state_n_nr_nl(t_node *node1, t_node *node2, t_stack *sa)
 {
-	if (sa->s[0] < sa->s[sa->size - 2] && _INT(node2) < _INT(node1))
+	if (sa->s[0] < sa->s[sa->size - 2] && _int(node2) < _int(node1))
 	{
-		if (sa->s[sa->size - 2] == _INT(node1))
+		if (sa->s[sa->size - 2] == _int(node1))
 			return (NR_LIS);
-		if (sa->s[0] == _INT(node2))
+		if (sa->s[0] == _int(node2))
 			return (NL_LIS);
 	}
-	else if (_INT(node2) > _INT(node1))
+	else if (_int(node2) > _int(node1))
 	{
-		if (sa->s[sa->size - 3] == _INT(node2)
-			&& sa->s[sa->size - 2] == _INT(node1))
+		if (sa->s[sa->size - 3] == _int(node2)
+			&& sa->s[sa->size - 2] == _int(node1))
 			return (NR_LIS);
-		if (sa->s[0] == _INT(node2) && sa->s[1] == _INT(node1))
+		if (sa->s[0] == _int(node2) && sa->s[1] == _int(node1))
 			return (NL_LIS);
 	}
 	return (NIN_LIS);
@@ -43,17 +43,16 @@ static int	state_n_in_lis(t_stack *sa, t_list *lis, int n)
 {
 	t_node	*node1;
 	t_node	*node2;
-	
+
 	node1 = lis->head;
 	node2 = l_get(lis, -1);
 	while (node1)
 	{
-		if (n == _INT(node1) || n == _INT(node2))
+		if (n == _int(node1) || n == _int(node2))
 			return (IN_LIS);
-		else if ((node1 == lis->head && _INT(node1) < n && n > _INT(node2))
-				|| (node1 == lis->head && _INT(node1) > n && n < _INT(node2))
-				|| (node1 != lis->head && _INT(node1) < n && n < _INT(node2))
-				)
+		else if ((node1 == lis->head && _int(node1) < n && n > _int(node2))
+			|| (node1 == lis->head && _int(node1) > n && n < _int(node2))
+			|| (node1 != lis->head && _int(node1) < n && n < _int(node2)))
 			break ;
 		node2 = node1;
 		node1 = node1->next;
@@ -73,7 +72,7 @@ void	add_it_to_list(t_list *list, int n)
 	while (node1)
 	{
 		node2 = node1->next;
-		if (node2 && _INT(node1) > n && n > _INT(node2))
+		if (node2 && _int(node1) > n && n > _int(node2))
 		{
 			new = l_create_node(create_nbr(n));
 			node1->next = new;
@@ -83,7 +82,7 @@ void	add_it_to_list(t_list *list, int n)
 		}
 		node1 = node1->next;
 	}
-	if (n > _INT(list->head))
+	if (n > _int(list->head))
 		l_append_front(list, create_nbr(n));
 	else
 		l_append_end(list, create_nbr(n));

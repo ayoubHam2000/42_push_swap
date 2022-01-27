@@ -45,4 +45,3 @@ void	ft_rr(t_stack *a, t_stack *b)
 	ft_shift_up(b);
 	write(1, "rr\n", 3);
 }
-

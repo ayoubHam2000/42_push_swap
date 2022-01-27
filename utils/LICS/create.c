@@ -20,8 +20,3 @@ void	*create_nbr(int nbr)
 	*p = nbr;
 	return (p);
 }
-
-void	*create_list()
-{
-	return (l_init());
-}

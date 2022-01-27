@@ -16,19 +16,19 @@ static void	exec_rule1(t_stack *sa, t_stack *sb, int a, int b)
 {
 	int	ar;
 	int	br;
-	
+
 	ar = sa->size - a - 1;
 	br = sb->size - b - 1;
 	ft_exec(sa, sb, ft_min(br, ar), RR);
-	ft_exec(sa, sb, ar - ft_min(br , ar), RA);
-	ft_exec(sa, sb, br - ft_min(br , ar), RB);
-	ft_exec(sa, sb, 1, PA);	
+	ft_exec(sa, sb, ar - ft_min(br, ar), RA);
+	ft_exec(sa, sb, br - ft_min(br, ar), RB);
+	ft_exec(sa, sb, 1, PA);
 }
 
 static void	exec_rule2(t_stack *sa, t_stack *sb, int a, int b)
 {
 	int	ar;
-	
+
 	ar = sa->size - a - 1;
 	ft_exec(sa, sb, ar, RA);
 	ft_exec(sa, sb, b + 1, RRB);
@@ -38,7 +38,7 @@ static void	exec_rule2(t_stack *sa, t_stack *sb, int a, int b)
 static void	exec_rule3(t_stack *sa, t_stack *sb, int a, int b)
 {
 	int	br;
-	
+
 	br = sb->size - b - 1;
 	ft_exec(sa, sb, a + 1, RRA);
 	ft_exec(sa, sb, br, RB);
@@ -62,7 +62,7 @@ void	*get_best_rule(t_stack *sa, t_stack *sb, int a, int b)
 	int		best;
 	int		old;
 	int		i;
-	
+
 	p[0] = exec_rule1;
 	p[1] = exec_rule2;
 	p[2] = exec_rule3;

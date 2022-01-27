@@ -27,12 +27,12 @@ void	lis_case2(t_list *lists, int n)
 	t_list	*new;
 	t_node	*node;
 
-	largest = _LIST(lists->head);
+	largest = _list(lists->head);
 	node = lists->head;
 	while (node)
 	{
-		if (l_len(largest) < l_len(_LIST(node)))
-			largest = _LIST(node);
+		if (l_len(largest) < l_len(_list(node)))
+			largest = _list(node);
 		node = node->next;
 	}
 	new = l_clone(largest, clone_nbr);
@@ -51,15 +51,15 @@ void	lis_case3(t_list *lists, int n)
 	node = lists->head;
 	while (node)
 	{
-		end = _INT(_LIST(node)->head);
+		end = _int(_list(node)->head);
 		if (!largest && end < n)
-			largest = _LIST(node);
-		else if (end < n && end > _INT(largest->head))
-			largest = _LIST(node);
+			largest = _list(node);
+		else if (end < n && end > _int(largest->head))
+			largest = _list(node);
 		node = node->next;
 	}
 	new = l_clone(largest, clone_nbr);
-	l_append_front(new , create_nbr(n));
+	l_append_front(new, create_nbr(n));
 	l_append_end(lists, new);
 	del_same_len(lists, new);
 }

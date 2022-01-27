@@ -26,7 +26,7 @@ static int	have_the_begenning_item(t_list *lis, int b)
 	node = lis->head;
 	while (node)
 	{
-		if (b == _INT(node))
+		if (b == _int(node))
 			return (1);
 		node = node->next;
 	}
@@ -43,16 +43,16 @@ t_list	*get_lis(t_list *lics, int b)
 	best = node;
 	while (node)
 	{
-		if (have_the_begenning_item(_LIST(node), b))
+		if (have_the_begenning_item(_list(node), b))
 		{
 			best = node;
-			break;
+			break ;
 		}
 		node = node->next;
 	}
 	l_del_cond(lics, best, con_not_best, del_list_nbr);
 	free(lics);
-	res = _LIST(best);
+	res = _list(best);
 	free(best);
 	return (res);
 }
