@@ -19,9 +19,9 @@ static void	exec_rule1(t_stack *sa, t_stack *sb, int a, int b)
 	
 	ar = sa->size - a - 1;
 	br = sb->size - b - 1;
-	ft_exec(sa, sb, ft_max(0, br - ar), RR);
-	ft_exec(sa, sb, ar - ft_max(0, br - ar), RA);
-	ft_exec(sa, sb, ft_max(0, br - ar), RB);
+	ft_exec(sa, sb, ft_min(br, ar), RR);
+	ft_exec(sa, sb, ar - ft_min(br , ar), RA);
+	ft_exec(sa, sb, br - ft_min(br , ar), RB);
 	ft_exec(sa, sb, 1, PA);	
 }
 
@@ -40,16 +40,19 @@ static void	exec_rule3(t_stack *sa, t_stack *sb, int a, int b)
 	int	br;
 	
 	br = sb->size - b - 1;
-	ft_exec(sa, sb, a, RRA);
+	ft_exec(sa, sb, a + 1, RRA);
 	ft_exec(sa, sb, br, RB);
 	ft_exec(sa, sb, 1, PA);
 }
 
 static void	exec_rule4(t_stack *sa, t_stack *sb, int a, int b)
 {
-	ft_exec(sa, sb, ft_max(0, b + 1 - a), RRR);
-	ft_exec(sa, sb, a - ft_max(0, b + 1 - a), RRA);
-	ft_exec(sa, sb, ft_max(0, b + 1 - a), RRB);
+	int	al;
+
+	al = a + 1;
+	ft_exec(sa, sb, ft_min(b + 1, al), RRR);
+	ft_exec(sa, sb, al - ft_min(b + 1, al), RRA);
+	ft_exec(sa, sb, b - ft_min(b + 1, al), RRB);
 	ft_exec(sa, sb, 1, PA);
 }
 
@@ -70,7 +73,7 @@ void	*get_best_rule(t_stack *sa, t_stack *sb, int a, int b)
 	while (++i < 4)
 	{
 		sa->util->moves = 0;
-		p[0](sa, sb, a, b);
+		p[i](sa, sb, a, b);
 		if (best == -1 || (sa->util->moves < old))
 		{
 			old = sa->util->moves;

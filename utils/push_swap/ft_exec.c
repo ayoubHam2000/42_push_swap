@@ -49,8 +49,8 @@ static void	exe_seq(t_stack *sa, t_stack *sb, int commands)
 		if (sa->util->affect)
 		{
 			exe_command(sa, sb, c);
-			//print_stack(*sa);
-			//print_stack(*sb);
+			print_stack(*sa);
+			print_stack(*sb);
 			//getchar();
 		}
 		sa->util->moves++;

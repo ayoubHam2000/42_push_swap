@@ -22,18 +22,18 @@ static int	state_n_nr_nl(t_node *node1, t_node *node2, t_stack *sa)
 {
 	if (sa->s[0] < sa->s[sa->size - 2] && _INT(node2) < _INT(node1))
 	{
-		if (sa->s[0] == _INT(node2))
-			return (NL_LIS);
 		if (sa->s[sa->size - 2] == _INT(node1))
 			return (NR_LIS);
+		if (sa->s[0] == _INT(node2))
+			return (NL_LIS);
 	}
 	else if (_INT(node2) > _INT(node1))
 	{
-		if (sa->s[0] == _INT(node2) && sa->s[1] == _INT(node1))
-			return (NL_LIS);
 		if (sa->s[sa->size - 3] == _INT(node2)
 			&& sa->s[sa->size - 2] == _INT(node1))
 			return (NR_LIS);
+		if (sa->s[0] == _INT(node2) && sa->s[1] == _INT(node1))
+			return (NL_LIS);
 	}
 	return (NIN_LIS);
 }
