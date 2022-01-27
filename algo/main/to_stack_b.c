@@ -43,14 +43,11 @@ static int	state_n_in_lis(t_stack *sa, t_list *lis, int n)
 {
 	t_node	*node1;
 	t_node	*node2;
-	int		i;
 	
 	node1 = lis->head;
 	node2 = l_get(lis, -1);
 	while (node1)
 	{
-		i = _INT(node1);
-		i = _INT(node2);
 		if (n == _INT(node1) || n == _INT(node2))
 			return (IN_LIS);
 		else if ((node1 == lis->head && _INT(node1) < n && n > _INT(node2))
@@ -66,6 +63,32 @@ static int	state_n_in_lis(t_stack *sa, t_list *lis, int n)
 	return (NIN_LIS);
 }
 
+void	add_it_to_list(t_list *list, int n)
+{
+	t_node	*node1;
+	t_node	*node2;
+	t_node	*new;
+
+	node1 = list->head;
+	while (node1)
+	{
+		node2 = node1->next;
+		if (node2 && _INT(node1) > n && n > _INT(node2))
+		{
+			new = l_create_node(create_nbr(n));
+			node1->next = new;
+			new->next = node2;
+			list->len++;
+			return ;
+		}
+		node1 = node1->next;
+	}
+	if (n > _INT(list->head))
+		l_append_front(list, create_nbr(n));
+	else
+		l_append_end(list, create_nbr(n));
+}
+
 void	to_stack_b(t_stack *sa, t_stack *sb, t_list *lis)
 {
 	int	n;
@@ -77,9 +100,7 @@ void	to_stack_b(t_stack *sa, t_stack *sb, t_list *lis)
 		n_state = state_n_in_lis(sa, lis, n);
 		if (n_state == IN_LIS)
 			ft_exec(sa, sb, 1, RA);
-		else
-			ft_exec(sa, sb, 1, PB);
-		/*else if (n_state == NIN_LIS)
+		else if (n_state == NIN_LIS)
 			ft_exec(sa, sb, 1, PB);
 		else if (n_state == NR_LIS)
 			ft_exec(sa, sb, 1, SA);
@@ -90,7 +111,8 @@ void	to_stack_b(t_stack *sa, t_stack *sb, t_list *lis)
 			sa->util->sm_size++;
 			if (sa->size == sa->util->sm_size)
 				break ;
+			add_it_to_list(lis, n);
 			ft_exec(sa, sb, 2, RA);
-		}*/
+		}
 	}
 }

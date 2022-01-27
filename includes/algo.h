@@ -21,11 +21,21 @@
 # define R3 3
 # define R4 4
 
+typedef struct	s_info
+{
+	int	a;
+	int	b;
+	int	old_moves;
+	void	(*f)(t_stack *sa, t_stack *sb, int a, int b);
+}	t_info;
+
 void	*transform(t_stack *sa);
 int		min_pos(t_stack *s);
 
 void	to_stack_b(t_stack *sa, t_stack *sb, t_list *lis);
-t_list	*get_lis(t_list *lics);
+t_list	*get_lis(t_list *lics, int b);
 void	*get_best_rule(t_stack *sa, t_stack *sb, int a, int b);
+void	adjust(t_stack *sa, t_stack *sb);
+void	to_stack_a(t_stack *sa, t_stack *sb);
 
 #endif

@@ -1,5 +1,5 @@
 i=0
-e=50
+e=20
 echo -n "" > log.txt
 while [ $i -le $e ]
 do

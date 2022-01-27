@@ -1,4 +1,4 @@
-f="per_3.txt"
+f="per.txt"
 n=`cat $f | wc -l`
 i=1
 touch res.txt
@@ -7,7 +7,7 @@ while [ $i -le $n ]
 do
 	permutation=`cat $f | head -$i | tail -1`
 	number=`./push_swap.exe $permutation | wc -l`
-	number=`echo $number - 2 | bc`
+	number=`echo $number - 1 | bc`
 	last=`./push_swap.exe $permutation | tail -1`
 	echo "$i=$permutation=$number=$last" >> res.txt
 	i=`echo $i + 1 | bc`

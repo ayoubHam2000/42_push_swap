@@ -74,3 +74,17 @@ void	print_stack(t_stack s)
 	}
 	printf("\n");
 }
+
+int	check_sort(t_stack *sa)
+{
+	int	i;
+
+	i = 0;
+	while (i + 1 < sa->size)
+	{
+		if (sa->s[i] < sa->s[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}

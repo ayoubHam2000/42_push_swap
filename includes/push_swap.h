@@ -83,6 +83,7 @@ void *init_stack(t_stack *s, int max, char **values, char tag);
 void *init_util(void);
 void	init_push(t_stack *sa, t_stack *sb, int ac, char **av);
 void print_stack(t_stack s);
+int		check_sort(t_stack *sa);
 
 int		ft_atoi(const char *str);
 int		ft_max(int a, int b);
