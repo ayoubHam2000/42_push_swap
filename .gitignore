@@ -1,5 +1,7 @@
 .vscode
 **/*.out
+**/*.exe
+**/*.txt
 **/*.DS_store
 **/*.a
 out

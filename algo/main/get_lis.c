@@ -12,21 +12,11 @@
 
 #include "algo.h"
 
-static int	gaps_size(t_list *list)
+static	int	con_not_best(t_node *node, void *p)
 {
-	t_node	*node;
-	int		res;
-
-	node = list->head;
-	if (!node)
+	if (node == p)
 		return (0);
-	res = 0;
-	while (node->next)
-	{
-		res += _INT(node) - _INT(node->next);
-		node = node->next;
-	}
-	return (res);
+	return (1);
 }
 
 static int	have_the_begenning_item(t_list *lis, int b)
@@ -46,27 +36,23 @@ static int	have_the_begenning_item(t_list *lis, int b)
 t_list	*get_lis(t_list *lics, int b)
 {
 	t_node	*node;
-	t_list	*best;
-	int		old;
-	int		gap_size;
+	t_node	*best;
+	t_list	*res;
 
-	old = 0;
 	node = lics->head;
-	best = _LIST(node);
+	best = node;
 	while (node)
 	{
 		if (have_the_begenning_item(_LIST(node), b))
 		{
-			best = _LIST(node);
+			best = node;
 			break;
 		}
-		/*gap_size = gaps_size(_LIST(node));
-		if (!old || old > gap_size)
-		{
-			best = _LIST(node);
-			old = gap_size;
-		}*/
 		node = node->next;
 	}
-	return (best);
+	l_del_cond(lics, best, con_not_best, del_list_nbr);
+	free(lics);
+	res = _LIST(best);
+	free(best);
+	return (res);
 }
