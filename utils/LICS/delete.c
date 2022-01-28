@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 18:29:14 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 20:57:32 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 22:55:23 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	con_del_same_len(t_node *node, void *p)
 {
-	int	len;
+	long	len;
 
 	len = (*(int *)p) + 1;
 	if (l_len(_list(node)) == len)

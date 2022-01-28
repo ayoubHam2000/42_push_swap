@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:27:26 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 14:52:47 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 22:53:53 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	l_append_end(t_list *list, void *p)
 {
 	t_node	*new;
-	t_node	*last;
 
 	new = l_create_node(p);
 	if (list->head)

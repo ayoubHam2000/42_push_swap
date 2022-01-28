@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:55:47 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 20:41:42 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 22:51:43 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LICS_H
 
 # include "linked_list.h"
-# include <stdio.h>
 
 void	print_list_nbr(t_list *list);
 void	print_lists(t_list *list);

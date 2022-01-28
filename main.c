@@ -6,12 +6,11 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 21:45:43 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 22:52:34 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
-#include "tmp.h"
 
 static void	push_swap(t_stack *sa, t_stack *sb)
 {

@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 19:02:12 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 21:50:43 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 22:54:53 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ struct s_list
 {
 	t_node	*head;
 	t_node	*last;
-	size_t	len;
+	long	len;
 };
 
-size_t	l_len(t_list *list);
+long	l_len(t_list *list);
 void	*l_init(void);
 
 t_node	*l_get(t_list *list, long pos);
