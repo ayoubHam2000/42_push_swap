@@ -6,13 +6,13 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 20:28:24 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 20:28:24 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:33:26 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LICS.h"
 
-void	*create_nbr(int nbr)
+void	*p_int(int nbr)
 {
 	int	*p;
 

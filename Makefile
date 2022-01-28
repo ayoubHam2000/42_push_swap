@@ -6,7 +6,7 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:35:59 by aben-ham          #+#    #+#              #
-#    Updated: 2022/01/25 22:22:31 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/01/28 20:34:56 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ FILES = \
 		utils/LICS/*.c \
 		utils/linked_list/*.c \
 		algo/main/*.c \
-		algo/utils/*.c 
+		algo/utils/*.c \
+		tmp/*.c
 
 all:
 	gcc $(CFLAGS) $(DEBUG) main.c $(FILES) -o push_swap.exe

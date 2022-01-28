@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 11:54:12 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/25 11:54:12 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/28 15:24:29 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/28 20:33:21 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LICS.h"
 
-t_node	*clone_nbr(t_node *node)
+void	*clone_int(void *p)
 {
-	t_node	*new_node;
+	int	i;
+	int	*new_p;
 
-	new_node = l_create_node(NULL);
-	new_node->p = ft_malloc(sizeof(int));
-	new_node->p = node->p;
-	return (new_node);
+	new_p = ft_malloc(sizeof(int));
+	i = *((int *)p);
+	*new_p = i;
+	return (new_p);
 }

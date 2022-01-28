@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   l_delete_node.c                                    :+:      :+:    :+:   */
+/*   lics.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 23:45:42 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/24 23:45:42 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/28 20:29:57 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/28 20:58:14 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_list.h"
+#include "LICS.h"
 
-void	l_delete_node(t_list *list, t_node *node, void (*del)(t_node *node))
+t_list	*lics(int *arr, int size)
 {
-	t_node	*before;
-	t_node	*tmp;
+	t_list	*lists;
+	int		*xx;
+	int		i;
 
-	if (!node || !list)
-		return ;
-	if (list->head == node)
+	xx = ft_malloc(sizeof(int) * (size * 2));
+	i = -1;
+	while (++i < size * 2)
+		xx[i] = arr[i % size];
+	lists = l_init();
+	i = -1;
+	xx += size;
+	while (++i < size)
 	{
-		tmp = node->next;
-		l_del_node(node, del);
-		list->head = tmp;
+		l_append_front(lists, lis(xx, size));
+		xx--;
 	}
-	else
-	{
-		before = list->head;
-		while (before->next != node)
-			before = before->next;
-		before->next = node->next;
-		l_del_node(node, del);
-	}
-	list->len--;
+	keep_longest(lists);
+	free(xx);
+	return (lists);
 }

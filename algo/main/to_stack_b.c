@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 21:02:24 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/27 02:41:59 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 21:27:39 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	state_n_in_lis(t_stack *sa, t_list *lis, int n)
 	t_node	*node2;
 
 	node1 = lis->head;
-	node2 = l_get(lis, -1);
+	node2 = lis->last;
 	while (node1)
 	{
 		if (n == _int(node1) || n == _int(node2))
@@ -74,7 +74,7 @@ void	add_it_to_list(t_list *list, int n)
 		node2 = node1->next;
 		if (node2 && _int(node1) > n && n > _int(node2))
 		{
-			new = l_create_node(create_nbr(n));
+			new = l_create_node(p_int(n));
 			node1->next = new;
 			new->next = node2;
 			list->len++;
@@ -83,9 +83,9 @@ void	add_it_to_list(t_list *list, int n)
 		node1 = node1->next;
 	}
 	if (n > _int(list->head))
-		l_append_front(list, create_nbr(n));
+		l_append_front(list, p_int(n));
 	else
-		l_append_end(list, create_nbr(n));
+		l_append_end(list, p_int(n));
 }
 
 void	to_stack_b(t_stack *sa, t_stack *sb, t_list *lis)

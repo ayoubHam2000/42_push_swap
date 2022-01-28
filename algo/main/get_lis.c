@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 21:03:48 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/25 21:04:03 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 21:12:24 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ t_list	*get_lis(t_list *lics, int b)
 		}
 		node = node->next;
 	}
-	l_del_cond(lics, best, con_not_best, del_list_nbr);
-	free(lics);
+	l_del_cond(lics, best, con_not_best, del_list_int);
 	res = _list(best);
-	free(best);
+	free(lics->head);
+	free(lics);
 	return (res);
 }
