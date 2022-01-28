@@ -6,13 +6,14 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:31:55 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 21:45:43 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
+#include "tmp.h"
 
-void	push_swap(t_stack *sa, t_stack *sb)
+static void	push_swap(t_stack *sa, t_stack *sb)
 {
 	t_list	*lic;
 
@@ -22,9 +23,16 @@ void	push_swap(t_stack *sa, t_stack *sb)
 	to_stack_b(sa, sb, lic);
 	to_stack_a(sa, sb);
 	adjust(sa, sb);
-	l_delete_all(lic, NULL);
+	l_del_all(lic, NULL);
 	free(lic);
 }	
+
+static void	free_stack(t_stack *sa, t_stack *sb)
+{
+	free(sa->s);
+	free(sb->s);
+	free(sa->util);
+}
 
 int	main(int ac, char **av)
 {
@@ -34,6 +42,6 @@ int	main(int ac, char **av)
 	init_push(&sa, &sb, ac, av);
 	if (sa.size > 1)
 		push_swap(&sa, &sb);
-	free(sa.util);
+	free_stack(&sa, &sb);
 	return (0);
 }

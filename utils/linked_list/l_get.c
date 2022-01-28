@@ -6,20 +6,31 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 20:46:00 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:30:43 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/01/28 21:22:45 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_list.h"
 
-t_node	*l_get(t_list *list, int pos)
+static int	l_check(t_list *list, long *index)
+{
+	if (!list || !l_len(list))
+		return (0);
+	if (*index < 0)
+		*index = l_len(list) + *index;
+	if (*index < 0 || *index > l_len(list))
+		return (0);
+	return (1);
+}
+
+t_node	*l_get(t_list *list, long pos)
 {
 	t_node	*node;
 
-	if (pos < 0)
-		pos = l_len(list) + pos;
-	if (pos < 0)
+	if (!l_check(list, &pos))
 		return (NULL);
+	if (pos == l_len(list) - 1)
+		return (list->last);
 	node = list->head;
 	while (node && pos > 0)
 	{

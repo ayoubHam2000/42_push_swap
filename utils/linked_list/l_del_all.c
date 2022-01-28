@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   l_delete_node.c                                    :+:      :+:    :+:   */
+/*   l_del_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 23:45:42 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:30:40 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/24 23:30:23 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/28 19:06:27 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_list.h"
 
-void	l_delete_node(t_list *list, t_node *node, void (*del)(t_node *node))
+//delete all nodes = result is an empty list
+void	l_del_all(t_list *list, void (*del_ptr)(void *p))
 {
-	t_node	*before;
-	t_node	*tmp;
+	t_node	*node;
+	t_node	*target;
 
-	if (!node || !list)
+	if (!list)
 		return ;
-	if (list->head == node)
+	node = list->head;
+	while (node)
 	{
-		tmp = node->next;
-		l_del_node(node, del);
-		list->head = tmp;
+		target = node;
+		node = node->next;
+		l_del_node(target, del_ptr);
 	}
-	else
-	{
-		before = list->head;
-		while (before->next != node)
-			before = before->next;
-		before->next = node->next;
-		l_del_node(node, del);
-	}
-	list->len--;
+	list->head = NULL;
+	list->len = 0;
 }

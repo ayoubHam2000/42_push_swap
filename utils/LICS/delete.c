@@ -5,35 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 23:33:23 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:29:55 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/28 18:29:14 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/28 20:57:32 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "LICS.h"
 
-void	del_list_nbr(t_node *node)
+int	con_del_same_len(t_node *node, void *p)
 {
-	l_delete_all(_list(node), NULL);
-	free(node->p);
-	free(node);
+	int	len;
+
+	len = (*(int *)p) + 1;
+	if (l_len(_list(node)) == len)
+		return (1);
+	return (0);
 }
 
-void	del_same_len(t_list *lists, t_list *new)
+int	con_del_less_than_len(t_node *node, void *p)
 {
-	t_node	*node;
-	t_node	*target;
+	if (_list(node)->len == _list((t_node *)p)->len)
+		return (0);
+	return (1);
+}
 
-	node = lists->head;
-	while (node)
-	{
-		if (_list(node) != new && l_len(_list(node)) == l_len(new))
-		{
-			target = node;
-			node = node->next;
-			l_delete_node(lists, target, del_list_nbr);
-		}
-		else
-			node = node->next;
-	}
+void	del_list_int(void *p)
+{
+	l_del_all((t_list *)p, NULL);
+	free(p);
 }

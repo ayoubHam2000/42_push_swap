@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   l_delete_all.c                                     :+:      :+:    :+:   */
+/*   tmp.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 23:30:23 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:30:32 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/01/28 00:35:33 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/01/28 20:49:00 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_list.h"
+#ifndef TMP_H
+# define TMP_H
 
-void	l_delete_all(t_list *list, void (*del)(t_node *node))
-{
-	t_node	*node;
-	t_node	*target;
+# include "algo.h"
 
-	if (!list)
-		return ;
-	node = list->head;
-	while (node)
-	{
-		target = node;
-		node = node->next;
-		l_del_node(target, del);
-	}
-	list->head = NULL;
-}
+void	print_list_nbr(t_list *list);
+void	print_lists(t_list *list);
+int		*get_arr(int ac, char **av);
+void	print_stack(t_stack s);
+int		check_sort(t_stack *sa);
+
+#endif

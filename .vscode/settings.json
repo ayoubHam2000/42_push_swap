@@ -5,7 +5,8 @@
 		"memory.h": "c",
 		"lics.h": "c",
 		"algo.h": "c",
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"tmp.h": "c"
 	},
 	"C_Cpp.default.includePath": ["includes/"]
 }
