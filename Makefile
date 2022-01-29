@@ -6,15 +6,16 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:35:59 by aben-ham          #+#    #+#              #
-#    Updated: 2022/01/29 11:55:35 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/01/29 15:08:40 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #-Wall -Wextra -Werror
 #DEBUG = -fdiagnostics-color=always -g
-#ls -d algo/main/* algo/utils/* utils/push_swap/* utils/other/* utils/linked_list/* utils/LICS/* | grep "" | sed 's/$/ \\/'
-CFLAGS =  -Wall -Wextra -Werror -I includes/
-NAME = push_swap
+#ls -d algo/main/* algo/utils/* utils/push_swap/* 
+#utils/other/* utils/linked_list/* utils/LICS/* 
+#| grep "" | sed 's/$/ \\/'
+
 FILES = \
 		algo/main/adjust.c \
 		algo/main/get_best_rule.c \
@@ -54,20 +55,11 @@ FILES = \
 		utils/push_swap/swap.c \
 		main.c
 
-INCLUDES = \
-	includes/LICS.h \
-	includes/algo.h \
-	includes/ft_mem.h \
-	includes/linked_list.h \
-	includes/push_swap.h 
-
-
+CFLAGS =  -Wall -Wextra -Werror -I includes/
+NAME = push_swap
 OBJ_DIR = obj/
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
-
-deps = $(patsubst %.o, %.d, $(OBJ))
--include $(deps)
-
+deps = $(OBJ:.o=.d)
 DEPFLAGS = -MMD -MF $(@:.o=.d)
 
 all : $(NAME)
@@ -79,6 +71,8 @@ $(OBJ) : obj/%.o : %.c
 	mkdir -p $(dir $@)
 	gcc $(CFLAGS) -c $(@:obj/%.o=%.c) $(DEPFLAGS) -o $@
 
+-include $(deps)
+
 clean :
 	rm -rf $(OBJ_DIR)
 
@@ -86,3 +80,10 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+# INCLUDES = \
+# 	includes/LICS.h \
+# 	includes/algo.h \
+# 	includes/ft_mem.h \
+# 	includes/linked_list.h \
+# 	includes/push_swap.h 
