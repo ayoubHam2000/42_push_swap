@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:36:04 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:29:45 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:48:19 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_util
 	int		sm_size;
 	int		moves;
 	int		affect;
+	id_t	checker;
 }	t_util;
 
 struct s_stack

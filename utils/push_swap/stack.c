@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:25 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:31:44 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:48:40 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	*init_util(void)
 	util->sm_size = 0;
 	util->moves = 0;
 	util->affect = 0;
+	util->checker = 0;
 	return (util);
 }
 

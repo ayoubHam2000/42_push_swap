@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:19 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:31:41 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:51:20 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,16 @@ static void	ft_shift_up(t_stack *s)
 void	ft_ra(t_stack *s)
 {
 	ft_shift_up(s);
+	if (s->util->checker)
+		return ;
 	write(1, "ra\n", 3);
 }
 
 void	ft_rb(t_stack *s)
 {
 	ft_shift_up(s);
+	if (s->util->checker)
+		return ;
 	write(1, "rb\n", 3);
 }
 
@@ -43,5 +47,7 @@ void	ft_rr(t_stack *a, t_stack *b)
 {
 	ft_shift_up(a);
 	ft_shift_up(b);
+	if (a->util->checker)
+		return ;
 	write(1, "rr\n", 3);
 }

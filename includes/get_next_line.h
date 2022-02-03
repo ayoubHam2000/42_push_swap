@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   LICS.h                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 17:55:47 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/03 13:12:53 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/02/03 13:24:32 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/02/03 13:24:44 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LICS_H
-# define LICS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFFER_SIZE 5
 
-# include "linked_list.h"
+# include <unistd.h>
+# include <stdlib.h>
 
-int		_int(t_node *x);
-t_list	*_list(t_node *x);
-void	*p_int(int nbr);
-void	*clone_int(void *p);
-
-int		con_del_same_len(t_node *node, void *p);
-int		con_del_less_than_len(t_node *node, void *p);
-void	del_list_int(void *p);
-void	keep_longest(t_list *lists);
-t_list	*lis(int *arr, int size);
-t_list	*lics(int *arr, int size);
+char	*mline(char *line, char *str);
+char	*get_next_line(int fd);
 
 #endif

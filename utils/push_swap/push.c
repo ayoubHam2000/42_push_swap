@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 22:35:17 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 00:31:28 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:49:43 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,15 @@ static void	ft_push(t_stack *sa, t_stack *sb)
 void	ft_pa(t_stack *sa, t_stack *sb)
 {
 	ft_push(sa, sb);
+	if (sa->util->checker)
+		return ;
 	write(1, "pa\n", 3);
 }
 
 void	ft_pb(t_stack *sa, t_stack *sb)
 {
 	ft_push(sb, sa);
+	if (sa->util->checker)
+		return ;
 	write(1, "pb\n", 3);
 }
