@@ -4,7 +4,6 @@
 **/*.txt
 **/*.DS_store
 **/*.a
-tmp/
 out
 obj/
 push_swap
