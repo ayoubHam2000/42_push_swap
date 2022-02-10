@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/03 13:16:01 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/10 10:48:09 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int	main(int ac, char **av)
 	if (sa.size > 1)
 		push_swap(&sa, &sb);
 	free_stack(&sa, &sb);
+	system("leaks push_swap");
 	return (0);
 }
