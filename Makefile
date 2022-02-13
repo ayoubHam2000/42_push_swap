@@ -6,7 +6,7 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:35:59 by aben-ham          #+#    #+#              #
-#    Updated: 2022/02/03 14:17:29 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/02/13 16:16:36 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,14 +85,14 @@ FILES_BONUS = \
 		_checker/get_instrinction.c \
 		_checker/main.c
 
-CFLAGS =  -Wall -Wextra -Werror -I includes/
+CFLAGS =  -g -Wall -Wextra -Werror -I includes/
 DEPFLAGS = -MMD -MF $(@:.o=.d)
 
 NAME = push_swap
 BONUS_NAME = checker
 
-OBJ_DIR = obj/
-OBJ_DIR_BONUS = obj/bonus/
+OBJ_DIR = OUT/
+OBJ_DIR_BONUS = OUT/bonus/
 
 OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 OBJ_BONUS = $(addprefix $(OBJ_DIR_BONUS), $(FILES_BONUS:.c=.o))
@@ -107,7 +107,7 @@ $(NAME) : $(OBJ)
 
 $(OBJ) : $(OBJ_DIR)%.o : %.c
 	mkdir -p $(dir $@)
-	gcc $(CFLAGS) -c $(@:obj/%.o=%.c) $(DEPFLAGS) -o $@
+	gcc $(CFLAGS) -c $(@:OUT/%.o=%.c) $(DEPFLAGS) -o $@
 
 -include $(deps)
 
@@ -120,7 +120,7 @@ $(BONUS_NAME) : $(OBJ_BONUS)
 
 $(OBJ_BONUS) : $(OBJ_DIR_BONUS)%.o : %.c
 	mkdir -p $(dir $@)
-	gcc $(CFLAGS) -c $(@:obj/bonus/%.o=%.c) $(DEPFLAGS) -o $@
+	gcc $(CFLAGS) -c $(@:OUT/bonus/%.o=%.c) $(DEPFLAGS) -o $@
 
 -include $(deps_bonus)
 

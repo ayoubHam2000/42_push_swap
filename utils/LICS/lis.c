@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:38:37 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 20:53:54 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/13 17:03:40 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static void	between(t_list *lists, int n)
 	new_node = l_create_node(l_clone(_list(largest), clone_int));
 	new_node->next = largest->next;
 	largest->next = new_node;
+	lists->len++;
 	l_del_cond(lists, &(_list(new_node)->len), con_del_same_len, del_list_int);
 	l_append_front(_list(new_node), p_int(n));
 }
@@ -100,6 +101,7 @@ t_list	*lis(int *arr, int size)
 	}
 	keep_longest(lists);
 	res = _list(lists->head);
+	l_del_cond(lists, lists, con_not_head, del_list_int);
 	free(lists->head);
 	free(lists);
 	return (res);

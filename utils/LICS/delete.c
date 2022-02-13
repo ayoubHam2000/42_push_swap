@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 18:29:14 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/01/28 22:55:23 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/13 17:03:47 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,14 @@ void	del_list_int(void *p)
 {
 	l_del_all((t_list *)p, NULL);
 	free(p);
+}
+
+int	con_not_head(t_node *node, void *p)
+{
+	t_list	*list;
+
+	list = p;
+	if (node == list->head)
+		return (0);
+	return (1);
 }
